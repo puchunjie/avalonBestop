@@ -1,0 +1,20 @@
+<div class="bst-module draggle-module graphic-module"
+     ms-css="@moduleSet.outLook.styles"
+     ms-css-1="@flag?@moduleSet.outLook.beforeHover:@moduleSet.outLook.hoverStyle"
+     ms-mouseenter="@addHoverStyle"
+     ms-mouseleave="@removeHoverStyle">
+    <div ms-attr="{id:@moduleId}"
+         ms-css="@moduleSet.moduleTitle.styles"
+         ms-css-1="@flag?@moduleSet.moduleTitle.beforeHover:@moduleSet.moduleTitle.hoverStyle"
+         ms-mouseenter="@addHoverStyle"
+         ms-mouseleave="@removeHoverStyle" ms-if="@moduleSet.moduleTitle.isShow">{{@moduleName}}</div>
+    <div style="clear:both"></div>
+    <div class="content" ms-css="@moduleSet.moduleContent.styles" ms-class="@moduleSet.advancedSetting.graphicClassStyle.default">
+        <!--内容区开始-->
+                <a ms-attr="{href:@moduleSet.advancedSetting.graphicDetles.href}">
+                    <img ms-attr="{src:@moduleSet.advancedSetting.graphicDetles.src}" alt="" ms-css="@moduleSet.advancedSetting.graphicImgStyle">
+                </a>
+                <div ms-html="@moduleSet.advancedSetting.graphicDetles.des"></div>
+        <!--内容区结束-->
+    </div>
+    </div>

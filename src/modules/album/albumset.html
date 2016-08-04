@@ -1,0 +1,136 @@
+<div class="attribute-content">
+    <!--宽高-->
+    <div class="attribute-content-item">
+        <span class="attribute-name">切换方式:</span>
+        <input type="radio" class="radio-box" name="picAnimate" checked value="default">默认
+        <input type="radio" class="radio-box" name="picAnimate" value="custom">自定义
+        <span class="attribute-custom" style="padding: 0">
+            <select ms-duplex="@animation">
+                <option value="none">无</option>
+                <option value="slide">滑动</option>
+                <option value="fade">渐变</option>
+            </select>
+        </span>
+    </div>
+    <div class="attribute-content-item">
+        <span class="attribute-name">切换方向:</span>
+        <input type="radio" class="radio-box" name="direction" checked value="default">默认
+        <input type="radio" class="radio-box" name="direction" value="custom">自定义
+        <span class="attribute-custom" style="padding: 0">
+            <select ms-duplex="@direction">
+                <option value="horizontal">水平切换</option>
+                <option value="vertical">垂直切换</option>
+            </select>
+        </span>
+    </div>
+    <div class="attribute-content-item">
+        <span class="attribute-name">反向滑动:</span>
+        <input type="radio" class="radio-box" name="reversea" checked value="default">默认
+        <input type="radio" class="radio-box" name="reversea" value="custom">自定义
+        <span class="attribute-custom" style="padding: 0">
+            <input type="radio" value="true" name="reverse" ms-duplex="@reverse">是
+            <input type="radio" value="false" name="reverse" ms-duplex="@reverse">否
+        </span>
+    </div>
+    <div class="attribute-content-item">
+        <span class="attribute-name">循环播放:</span>
+        <input type="radio" class="radio-box" name="animationLoopa" checked value="default">默认
+        <input type="radio" class="radio-box" name="animationLoopa" value="custom">自定义
+        <span class="attribute-custom" style="padding: 0">
+            <input type="radio" value="true" name="animationLoop" ms-duplex="@animationLoop">是
+            <input type="radio" value="false" name="animationLoop" ms-duplex="@animationLoop">否
+        </span>
+    </div>
+    <div class="attribute-content-item">
+        <span class="attribute-name">初始位置:</span>
+        <input type="radio" class="radio-box" name="startAt" checked value="default">默认
+        <input type="radio" class="radio-box" name="startAt" value="custom">自定义
+        <span class="attribute-custom" style="padding: 0">
+            <input type="text" ms-duplex="@startAt">
+        </span>
+    </div>
+    <div class="attribute-content-item">
+        <span class="attribute-name">自动播放:</span>
+        <input type="radio" class="radio-box" name="slideshow" checked value="default">默认
+        <input type="radio" class="radio-box" name="slideshow" value="custom">自定义
+        <div class="attribute-custom">
+            <div class="attribute-custom-item">
+                <input type="radio" value="true" name="slideshow" ms-duplex="@slideshow"><label>开启</label>
+                <input type="radio" value="false" name="slideshow" ms-duplex="@slideshow"><label>关闭</label>
+            </div>
+            <div class="attribute-custom-item">
+                <span class="attribute-custom-name">播放速度:</span><input type="text" ms-duplex="@slideshowSpeed">
+            </div>
+
+        </div>
+    </div>
+    <div class="attribute-content-item">
+        <span class="attribute-name">动画速度:</span>
+        <input type="radio" class="radio-box" name="animationSpeed" checked value="default">默认
+        <input type="radio" class="radio-box" name="animationSpeed" value="custom">自定义
+        <span class="attribute-custom" style="padding: 0">
+            <input type="text" ms-duplex="@animationSpeed">
+        </span>
+    </div>
+    <div class="attribute-content-item">
+        <span class="attribute-name">随机播放:</span>
+        <input type="radio" class="radio-box" name="randomizea" checked value="default">默认
+        <input type="radio" class="radio-box" name="randomizea" value="custom">自定义
+        <div class="attribute-custom">
+            <div class="attribute-custom-item">
+                <input type="radio" value="true" name="randomize" ms-duplex="@randomize"><label>开启</label>
+                <input type="radio" value="false" name="randomize" ms-duplex="@randomize"><label>关闭</label>
+            </div>
+        </div>
+    </div>
+    <div class="attribute-content-item">
+        <span class="attribute-name">鼠标经过:</span>
+        <input type="radio" class="radio-box" name="pauseOnHovera" checked value="default">默认
+        <input type="radio" class="radio-box" name="pauseOnHovera" value="custom">自定义
+        <div class="attribute-custom">
+            <div class="attribute-custom-item">
+                <input type="radio" value="true" name="pauseOnHover" ms-duplex="@pauseOnHover"><label>开启切换</label>
+                <input type="radio" value="false" name="pauseOnHover" ms-duplex="@pauseOnHover"><label>停止切换</label>
+            </div>
+        </div>
+    </div>
+    <div class="attribute-content-item">
+        <span class="attribute-name">分页控件:</span>
+        <input type="radio" class="radio-box" name="controlNava" checked value="default">默认
+        <input type="radio" class="radio-box" name="controlNava" value="hidden">隐藏
+        <input type="radio" class="radio-box" name="controlNava" value="custom">自定义
+        <div class="attribute-custom">
+            <div class="attribute-custom-item">
+                <span class="attribute-custom-name">分页样式:</span>
+                <select ms-duplex="@controlNav">
+                    <option value="true">圆点</option>
+                    <option value="thumbnails">缩略图</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="attribute-content-item">
+        <span class="attribute-name">翻页控件:</span>
+        <input type="radio" class="radio-box" name="directionNav" checked value="default">默认
+        <input type="radio" class="radio-box" name="directionNav" value="true" ms-duplex="@directionNav">显示
+        <input type="radio" class="radio-box" name="directionNav" value="false" ms-duplex="@directionNav">隐藏
+    </div>
+    <div class="attribute-content-item">
+        <span class="attribute-name">触屏事件:</span>
+        <input type="radio" class="radio-box" name="directionNav" checked value="default">默认
+        <input type="radio" class="radio-box" name="directionNav" value="true" ms-duplex="@touch">显示
+        <input type="radio" class="radio-box" name="directionNav" value="false" ms-duplex="@touch">隐藏
+    </div>
+    <div class="attribute-content-item">
+        <span class="attribute-name">键盘事件:</span>
+        <input type="radio" class="radio-box" name="directionNav" checked value="default">默认
+        <input type="radio" class="radio-box" name="directionNav" value="true" ms-duplex="@keyboard">显示
+        <input type="radio" class="radio-box" name="directionNav" value="false" ms-duplex="@keyboard">隐藏
+    </div>
+    <div class="attribute-content-item">
+        <span class="attribute-name">播放按钮:</span>
+        <input type="radio" class="radio-box" name="directionNav" checked value="default">默认
+        <input type="radio" class="radio-box" name="directionNav" value="true" ms-duplex="@pausePlay">显示
+        <input type="radio" class="radio-box" name="directionNav" value="false" ms-duplex="@pausePlay">隐藏
+    </div>
+</div>

@@ -1,0 +1,32 @@
+.list-content ul{
+	margin: 0;
+	padding: 0;
+}
+.show{
+	display:block
+}
+.hide{
+	display:none
+}
+/*
+图文模块样式1
+*/
+.styleType_1 img{
+float: left;
+display: block
+}
+/*
+图文模块样式2
+*/
+.styleType_2 img{
+    float: none;
+    display: block
+}
+/*
+图文模块样式3
+*/
+.styleType_3 img{
+    float: right;
+    display: block
+}
+

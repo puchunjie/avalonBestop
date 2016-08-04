@@ -1,0 +1,20 @@
+.slideBox{position:relative;}
+.slideBox .albumItem{ position:relative; height:100%; z-index:0;overflow: hidden;   }
+.slideBox .albumItem li{ zoom:1; vertical-align:middle;float: left;border-width: 1px}
+.slideBox .albumItem .albumItemImgBox{display: block;position: relative}
+.slideBox .albumItem img{display:block;}
+.slideBox .albumItem img.scale{width: 100%!important;height: 100%!important;}
+.slideBox .albumItem .album-description{position: absolute;width: 100%;bottom: 0;padding-left: 10px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.slideBox .hd{overflow:hidden; position:absolute; z-index:1; width: 100%; }
+.slideBox .hd ul{ overflow:hidden; zoom:1;position: relative}
+.slideBox .hd ul li{display:inline-block;*display: inline;zoom: 1;cursor:pointer;overflow: hidden }
+.slideBox .hd ul li.on{ background:#f00!important; color:#fff; }
+.slideBox .hd ul.scaleImgBox li{ float: left;}
+.slideBox .hd ul li .scaleImg{width: 100%;height: 100%;}
+.slideBox .hd ul li.on .scaleImg{filter:alpha(opacity=100);opacity:1;border-color: red!important;}
+.slideBox .prev,
+.slideBox .next{ position:absolute; filter:alpha(opacity=80);opacity:0.8;   }
+.slideBox .prev:hover,
+.slideBox .next:hover{ filter:alpha(opacity=100);opacity:1;}
+.slideBox .prevStop{ display:none;}
+.slideBox .nextStop{ display:none;}

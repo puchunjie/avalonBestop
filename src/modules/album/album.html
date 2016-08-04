@@ -1,0 +1,61 @@
+<div class="bst-module draggle-module album-module"
+     ms-css="@moduleSet.outLook.styles"
+     ms-css-1="@flag?@moduleSet.outLook.hoverStyle:@moduleSet.outLook.beforeHover"
+     ms-mouseenter="@addHoverStyle"
+     ms-mouseleave="@removeHoverStyle">
+    <div class="slideBox"
+         ms-css="{width:@moduleSet.advancedSetting.albumStyleDefaule.albumPosterWidth+(@moduleSet.advancedSetting.albumStyleDefaule.albumPosterBorderWidth*2),height:@moduleSet.advancedSetting.albumStyleDefaule.albumPosterHeight,borderWidth:@moduleSet.advancedSetting.albumStyleDefaule.albumPosterBorderWidth,borderStyle:@moduleSet.advancedSetting.albumStyleDefaule.albumPosterBorderStyle,borderColor:@moduleSet.advancedSetting.albumStyleDefaule.albumPosterBorderColor}">
+        <div class="albumItem">
+            <ul>
+                <li ms-for="(k,v) in @moduleSet.advancedSetting.albumPicture"
+                    ms-css="{width:@moduleSet.advancedSetting.albumStyleDefaule.albumitemWidth,height:@moduleSet.advancedSetting.albumStyleDefaule.albumitemTitle?@moduleSet.advancedSetting.albumStyleDefaule.albumitemHeight+@moduleSet.advancedSetting.albumStyleDefaule.albumiTiHeight:@moduleSet.advancedSetting.albumStyleDefaule.albumitemHeight,marginTop:@moduleSet.advancedSetting.albumStyleDefaule.albumiMarginT,marginBottom:@moduleSet.advancedSetting.albumStyleDefaule.albumiMarginB,marginRight:@moduleSet.advancedSetting.albumStyleDefaule.albumiMarginR,marginLeft:@moduleSet.advancedSetting.albumStyleDefaule.albumiMarginL}">
+                    <a class="albumItemImgBox"
+                       ms-attr="{href:v.href,target:'_blank'}"
+                       ms-css="{height:@moduleSet.advancedSetting.albumStyleDefaule.albumitemHeight}">
+                        <img ms-attr="{src:v.src,title:v.title,alt:v.title}"
+                             ms-class="@moduleSet.advancedSetting.albumStyleDefaule.albumitemPicScale?@moduleSet.advancedSetting.albumStyleDefaule.albumitemPicClass:@moduleSet.advancedSetting.albumStyleDefaule.albumitemPicClass2"
+                             ms-css="{borderWidth:@moduleSet.advancedSetting.albumStyleDefaule.albumiBorderWidth,borderColor:@moduleSet.advancedSetting.albumStyleDefaule.albumiBorderColor,borderStyle:@moduleSet.advancedSetting.albumStyleDefaule.albumiBorderStyle,paddingTop:@moduleSet.advancedSetting.albumStyleDefaule.albumiPaddingT,paddingBottom:@moduleSet.advancedSetting.albumStyleDefaule.albumiPaddingB,paddingRight:@moduleSet.advancedSetting.albumStyleDefaule.albumiPaddingR,paddingLeft:@moduleSet.advancedSetting.albumStyleDefaule.albumiPaddingL}"/>
+                        <p class="album-description" ms-visible="@moduleSet.advancedSetting.albumStyleDefaule.albumdesBool"
+                           ms-css="{height:@moduleSet.advancedSetting.albumStyleDefaule.albumdesHeight,backgroundColor:@moduleSet.advancedSetting.albumStyleDefaule.albumdesBColor,fontFamily:@moduleSet.advancedSetting.albumStyleDefaule.albumdesFontFamily, fontSize:@moduleSet.advancedSetting.albumStyleDefaule.albumdesFontSize,opacity:@moduleSet.advancedSetting.albumStyleDefaule.albumdesOpacity/10,color:@moduleSet.advancedSetting.albumStyleDefaule.albumdesColor,lineHeight:@moduleSet.advancedSetting.albumStyleDefaule.albumdesHeight+'px',backgroundImage:'url('+@moduleSet.advancedSetting.albumStyleDefaule.albumdesImage + ')',backgroundRepeat:@moduleSet.advancedSetting.albumStyleDefaule.albumdesRepeat,backgroundPosition:@moduleSet.advancedSetting.albumStyleDefaule.albumdesPosition}">
+                            {{v.description}}
+                        </p>
+                    </a>
+
+                    <p class="album-title"
+                       ms-if="@moduleSet.advancedSetting.albumStyleDefaule.albumitemTitle"
+                       ms-css="{height:@moduleSet.advancedSetting.albumStyleDefaule.albumiTiHeight,color:@moduleSet.advancedSetting.albumStyleDefaule.albumiTiColor,lineHeight:@moduleSet.advancedSetting.albumStyleDefaule.albumiTiHeight+'px',textAlign:@moduleSet.advancedSetting.albumStyleDefaule.albumiTiAlign,fontSize:@moduleSet.advancedSetting.albumStyleDefaule.albumiTiFontSize,fontFamily:@moduleSet.advancedSetting.albumStyleDefaule.albumiTiFontFamily,backgroundColor:@moduleSet.advancedSetting.albumStyleDefaule.albumiTiBColor,backgroundImage:'url('+@moduleSet.advancedSetting.albumStyleDefaule.albumiTiImage + ')',backgroundRepeat:@moduleSet.advancedSetting.albumStyleDefaule.albumiTiRepeat,backgroundPosition:@moduleSet.advancedSetting.albumStyleDefaule.albumiTiPosition}">
+                        {{v.title}}
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <a class="prev" href="javascript:void(0)"
+           ms-if="@moduleSet.advancedSetting.albumStyleDefaule.albumdirectionNavBool"
+           ms-css="{width:@moduleSet.advancedSetting.albumStyleDefaule.albumdireWidth,height:@moduleSet.advancedSetting.albumStyleDefaule.albumdireHeight,left:@moduleSet.advancedSetting.albumStyleDefaule.albumdireLeftRight,top:(@moduleSet.advancedSetting.albumStyleDefaule.albumitemHeight-@moduleSet.advancedSetting.albumStyleDefaule.albumdireHeight)/2,borderRadius:@moduleSet.advancedSetting.albumStyleDefaule.albumdireRadius,backgroundColor:@moduleSet.advancedSetting.albumStyleDefaule.albumdireBColor,backgroundImage:'url('+@moduleSet.advancedSetting.albumStyleDefaule.albumdireImageL + ')',backgroundRepeat:@moduleSet.advancedSetting.albumStyleDefaule.albumdireRepeat,backgroundPosition:@moduleSet.advancedSetting.albumStyleDefaule.albumdirePosition}"></a>
+        <a class="next" href="javascript:void(0)" ms-if="@moduleSet.advancedSetting.albumStyleDefaule.albumdirectionNavBool"
+           ms-css="{width:@moduleSet.advancedSetting.albumStyleDefaule.albumdireWidth,height:@moduleSet.advancedSetting.albumStyleDefaule.albumdireHeight,right:@moduleSet.advancedSetting.albumStyleDefaule.albumdireLeftRight,top:(@moduleSet.advancedSetting.albumStyleDefaule.albumitemHeight-@moduleSet.advancedSetting.albumStyleDefaule.albumdireHeight)/2,borderRadius:@moduleSet.advancedSetting.albumStyleDefaule.albumdireRadius,backgroundColor:@moduleSet.advancedSetting.albumStyleDefaule.albumdireBColor,backgroundImage:'url('+@moduleSet.advancedSetting.albumStyleDefaule.albumdireImageR + ')',backgroundRepeat:@moduleSet.advancedSetting.albumStyleDefaule.albumdireRepeat,backgroundPosition:@moduleSet.advancedSetting.albumStyleDefaule.albumdirePosition}"></a>
+        <div class="hd"
+             ms-if="@moduleSet.advancedSetting.albumStyleDefaule.albumcontrolNavBool"
+             ms-css="{height:@moduleSet.advancedSetting.albumStyleDefaule.albumcnHeight+@moduleSet.advancedSetting.albumStyleDefaule.albumcnMarginT+@moduleSet.advancedSetting.albumStyleDefaule.albumcnMarginB,top:@moduleSet.advancedSetting.albumStyleDefaule.albumcnTop}">
+            <ul ms-css="{textAlign:@moduleSet.advancedSetting.albumStyleDefaule.albumcnNavAlign,left:@moduleSet.advancedSetting.albumStyleDefaule.albumcnPosL}">
+                <li ms-for="(k,v) in @moduleSet.advancedSetting.albumPicture"
+                    ms-css="{width:@moduleSet.advancedSetting.albumStyleDefaule.albumcnWidth,height:@moduleSet.advancedSetting.albumStyleDefaule.albumcnHeight,lineHeight:@moduleSet.advancedSetting.albumStyleDefaule.albumcnHeight+'px',textAlign:@moduleSet.advancedSetting.albumStyleDefaule.albumcnAlign,backgroundColor:@moduleSet.advancedSetting.albumStyleDefaule.albumcnBColor,marginRight:@moduleSet.advancedSetting.albumStyleDefaule.albumcnMarginR,marginLeft:@moduleSet.advancedSetting.albumStyleDefaule.albumcnMarginL,marginTop:@moduleSet.advancedSetting.albumStyleDefaule.albumcnMarginT,marginBottom:@moduleSet.advancedSetting.albumStyleDefaule.albumcnMarginB,fontSize:@moduleSet.advancedSetting.albumStyleDefaule.albumcnFontSize,borderRadius:@moduleSet.advancedSetting.albumStyleDefaule.albumcnRadius,color:@moduleSet.advancedSetting.albumStyleDefaule.albumcnColor}">
+                    <span ms-if="@moduleSet.advancedSetting.albumStyleDefaule.albumcnNumBool">{{k+1}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="hd"
+             ms-if="@moduleSet.advancedSetting.albumStyleDefaule.albumSIBool"
+             ms-css="{top:@moduleSet.advancedSetting.albumStyleDefaule.albumitemTitle?@moduleSet.advancedSetting.albumStyleDefaule.albumitemHeight+@moduleSet.advancedSetting.albumStyleDefaule.albumiTiHeight:@moduleSet.advancedSetting.albumStyleDefaule.albumitemHeight}">
+            <ul class="scaleImgBox" ms-css="{textAlign:@moduleSet.advancedSetting.albumStyleDefaule.albumcnNavAlign}">
+                <li ms-for="(k,v) in @moduleSet.advancedSetting.albumPicture"
+                    ms-css="{width:@moduleSet.advancedSetting.albumStyleDefaule.albumPosterWidth/@moduleSet.advancedSetting.albumPicture.length,height:@moduleSet.advancedSetting.albumStyleDefaule.albumSIHeight-@moduleSet.advancedSetting.albumStyleDefaule.albumSIBorderWidth*2}">
+                    <img class="scaleImg"
+                         ms-attr="{src:v.src,title:v.title,alt:v.title}"
+                         ms-css="{borderWidth:@moduleSet.advancedSetting.albumStyleDefaule.albumSIBorderWidth,borderColor:@moduleSet.advancedSetting.albumStyleDefaule.albumSIBorderColor,borderStyle:@moduleSet.advancedSetting.albumStyleDefaule.albumSIBorderStyle}"/>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+

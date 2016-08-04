@@ -1,0 +1,12 @@
+<div ms-attr="{id: @moduleId}"
+     class="bst-banner-content"
+     ms-css="@styles">
+    <xmp ms-for='(index,slotmodeul) in @slotModeules'
+         ms-widget='[{is:"ms-"+slotmodeul.moduleName,$id:index},slotmodeul]'></xmp>
+    <div ms-if="@slotModeules == null" class="drag-palcehold">{{ @palceHold || '请添加模块' }}</div>
+    <ul class="drag-setting" ms-if="@moduleName !== 'drag_common'">
+        <li ms-click="@moveTop">上移</li>
+        <li ms-click="@moveBottom">下移</li>
+        <li ms-click="@removeDrag">删除</li>
+    </ul>
+</div>

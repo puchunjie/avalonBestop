@@ -1,0 +1,28 @@
+.ms-tab {
+    height: 100%;
+    overflow:scroll
+}
+
+.ms-tab .panel {
+    width: 100%;
+    padding: 10px;
+}
+
+.tabs {
+    height: 54px;
+    line-height: 54px;
+    border-bottom: 1px solid #cececd;
+}
+
+.tab {
+    display: inline-block;
+    width: 88px;
+    font-size: 13px;
+    color: #868686;
+    cursor: pointer;
+}
+
+.tab.current {
+    color: #666;
+    font-weight: 800;
+}

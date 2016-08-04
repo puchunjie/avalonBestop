@@ -1,0 +1,230 @@
+{
+  "moduleName": "graphic",
+  "moduleId": "",
+  "tools": [
+    {
+      "name": "设置",
+      "type": "settings",
+      "icon": "icon-shezhi"
+    },
+    {
+      "name": "删除",
+      "type": "delete",
+      "icon": "icon-shanchu"
+    },
+    {
+      "name": "复制",
+      "type": "copy",
+      "icon": "icon-fuzhi"
+    }
+  ],
+  "flag":true,
+  "moduleSet": {
+    "outLook": {
+      "styles": {
+        "borderRadius": 5,
+        "opacity": 1,
+        "width": 300,
+        "height": 220,
+        "left": 0,
+        "top": 0,
+        "paddingTop": 0,
+        "paddingRight": 0,
+        "paddingBottom": 0,
+        "paddingLeft": 0,
+        "marginTop": 0,
+        "marginBottom": 0,
+        "marginRight": 0,
+        "marginLeft": 0,
+        "cursor": "move",
+        "position": "absolute",
+        "backgroundColor": "#fff"
+      },
+      "beforeHover": {
+        "backgroundColor": "#fff",
+        "backgroundImage": "none",
+        "backgroundPosition": "left center",
+        "backgroundRepeat": "repeat-x",
+        "borderTopColor": "#fff",
+        "borderTopWidth": 0,
+        "borderTopStyle": "dashed",
+        "borderBottomColor": "#000",
+        "borderBottomWidth": 0,
+        "borderBottomStyle": "solid",
+        "borderLeftColor": "#eee",
+        "borderLeftWidth": 0,
+        "borderLeftStyle": "dashed",
+        "borderRightColor": "#c01",
+        "borderRightWidth": 0,
+        "borderRightStyle": "dashed",
+        "fontSize":14,
+        "fontFamily":"微软雅黑"
+      },
+      "hoverStyle": {
+        "backgroundColor": "#fff",
+        "backgroundImage": "none",
+        "backgroundPosition": "left center",
+        "backgroundRepeat": "repeat-x",
+        "borderTopColor": "#fff",
+        "borderTopWidth": 0,
+        "borderTopStyle": "dashed",
+        "borderBottomColor": "#000",
+        "borderBottomWidth": 0,
+        "borderBottomStyle": "solid",
+        "borderLeftColor": "#eee",
+        "borderLeftWidth": 0,
+        "borderLeftStyle": "dashed",
+        "borderRightColor": "#c01",
+        "borderRightWidth": 0,
+        "borderRightStyle": "dashed",
+        "fontSize":14,
+        "fontFamily":"微软雅黑"
+      }
+    },
+    "moduleTitle": {
+      "isShow": true,
+      "styles": {
+        "borderRadius": 5,
+        "opacity": 1,
+        "width": 300,
+        "height": 40,
+        "paddingTop": 0,
+        "paddingRight": 0,
+        "paddingBottom": 0,
+        "paddingLeft": 20,
+        "marginTop": 0,
+        "marginBottom": 5,
+        "marginRight": 0,
+        "marginLeft": 0,
+        "cursor": "move",
+        "backgroundColor": "#f3f3f3",
+        "lineHeight":"2.4"
+      },
+      "beforeHover": {
+        "backgroundColor": "#ccc",
+        "backgroundImage": "none",
+        "backgroundPosition": "left center",
+        "backgroundRepeat": "repeat-x",
+        "borderTopColor": "#fff",
+        "borderTopWidth": 0,
+        "borderTopStyle": "dashed",
+        "borderBottomColor": "#000",
+        "borderBottomWidth": 0,
+        "borderBottomStyle": "solid",
+        "borderLeftColor": "#eee",
+        "borderLeftWidth": 10,
+        "borderLeftStyle": "solid",
+        "borderRightColor": "#c01",
+        "borderRightWidth": 0,
+        "borderRightStyle": "dashed",
+        "fontSize":14,
+        "fontFamily":"微软雅黑"
+      },
+      "hoverStyle": {
+        "backgroundColor": "#999",
+        "backgroundImage": "none",
+        "backgroundPosition": "left center",
+        "backgroundRepeat": "repeat-x",
+        "borderTopColor": "#fff",
+        "borderTopWidth": 0,
+        "borderTopStyle": "dashed",
+        "borderBottomColor": "#000",
+        "borderBottomWidth": 0,
+        "borderBottomStyle": "solid",
+        "borderLeftColor": "#eee",
+        "borderLeftWidth": 10,
+        "borderLeftStyle": "solid",
+        "borderRightColor": "#c01",
+        "borderRightWidth": 0,
+        "borderRightStyle": "dashed",
+        "fontSize":14,
+        "fontFamily":"微软雅黑"
+      }
+    },
+    "moduleContent": {
+      "styles": {
+        "borderRadius": 5,
+        "opacity": 1,
+        "width": 300,
+        "height": 220,
+        "paddingTop": 0,
+        "paddingRight": 0,
+        "paddingBottom": 0,
+        "paddingLeft": 0,
+        "marginTop": 0,
+        "marginBottom": 0,
+        "marginRight": 0,
+        "marginLeft": 0,
+        "cursor": "move",
+        "backgroundColor": "#f3f3f3",
+        "lineHeight":"2"
+      },
+      "beforeHover": {
+        "backgroundColor": "red",
+        "backgroundImage": "none",
+        "backgroundPosition": "left center",
+        "backgroundRepeat": "repeat-x",
+        "borderTopColor": "#fff",
+        "borderTopWidth": 0,
+        "borderTopStyle": "dashed",
+        "borderBottomColor": "#000",
+        "borderBottomWidth": 0,
+        "borderBottomStyle": "solid",
+        "borderLeftColor": "#eee",
+        "borderLeftWidth": 0,
+        "borderLeftStyle": "dashed",
+        "borderRightColor": "#c01",
+        "borderRightWidth": 0,
+        "borderRightStyle": "dashed",
+        "fontSize":14,
+        "fontFamily":"微软雅黑"
+      },
+      "hoverStyle": {
+        "backgroundColor": "#ccc",
+        "backgroundImage": "none",
+        "backgroundPosition": "left center",
+        "backgroundRepeat": "repeat-x",
+        "borderTopColor": "#fff",
+        "borderTopWidth": 0,
+        "borderTopStyle": "dashed",
+        "borderBottomColor": "#000",
+        "borderBottomWidth": 0,
+        "borderBottomStyle": "solid",
+        "borderLeftColor": "#eee",
+        "borderLeftWidth": 0,
+        "borderLeftStyle": "dashed",
+        "borderRightColor": "#c01",
+        "borderRightWidth": 0,
+        "borderRightStyle": "dashed",
+        "fontSize":14,
+        "fontFamily":"微软雅黑"
+      }
+    },
+    "advancedSetting": {
+      "graphicDetles": {
+        "src": "http://placehold.it/350x150",
+        "des":"<h3>微电影</h3><span>SHORT FILM</span><p>描述1描述1描述1描述1描述1描述1描述1描述1描述1描述1描述1描述1描述1描述1描述1描述1描述1描述1描述1描述1描述1描述1描述1描述1描述1描述1描述1描述1描述1描述1</p>",
+        "href":"www.baidu1.com"
+      },
+      "graphicClassStyle": {
+        "default": "styleType_1"
+      },
+      "graphicImgStyle": {
+        "width": 150,
+        "height": 100
+      },
+      "graphicImgStyle_1": {
+        "width": 150,
+        "height": 100
+      },
+      "graphicImgStyle_2": {
+        "width": 300,
+        "height": 100
+      },
+      "graphicImgStyle_3": {
+        "width": 150,
+        "height": 100
+      }
+    }
+  }
+}

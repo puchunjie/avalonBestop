@@ -1,0 +1,10 @@
+.picture-module{
+    display: block;
+    overflow: hidden;
+}
+
+.picture-module img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}

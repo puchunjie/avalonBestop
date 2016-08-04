@@ -1,0 +1,10 @@
+<div class="ms-tab">
+    <ul class="tabs">
+        <li ms-for="($index, tab) in @tabs"
+            ms-class="['tab', ($index == @currentTab) && 'current']"
+            ms-click="@onChangeTab($index)" >
+            <p ms-text="tab.name"></p>
+        </li>
+    </ul>
+    <div class="panel" ms-html="@tpl"></div>
+</div>

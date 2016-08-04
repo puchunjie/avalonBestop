@@ -1,0 +1,87 @@
+<div class="attribute-content">
+    <!--宽高-->
+    <div class="attribute-content-item">
+        <span class="attribute-name">图片地址:</span>
+        <input type="radio" class="radio-box" name="picPath" checked value="default">默认
+        <input type="radio" class="radio-box" name="picPath" value="custom">自定义
+        <div class="attribute-custom">
+            <div class="attribute-custom-item">
+                <span class="attribute-custom-name">地址:</span>
+
+                <span class="attribute-custom-name">更改图片:</span>
+                <input type="text" ms-duplex="@moduleSet.advancedSetting.graphicDetles.src">
+                <button>上传</button>
+            </div>
+        </div>
+    </div>
+    <div class="attribute-content-item">
+        <span class="attribute-name">链接地址:</span>
+        <input type="radio" class="radio-box" name="hrefPath" checked value="default">默认
+        <input type="radio" class="radio-box" name="hrefPath" value="custom">自定义
+        <div class="attribute-custom">
+            <div class="attribute-custom-item">
+                <span class="attribute-custom-name">站外地址:</span>
+                <input type="text" ms-duplex="@moduleSet.advancedSetting.graphicDetles.href">
+            </div>
+            <div class="attribute-custom-item">
+                <span class="attribute-custom-name">站内地址:</span>
+                <select>
+                    <option ms-for="(index,el) in @href.innerPage" value="el.href">{{ el.page }}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="attribute-content-item">
+        <span class="attribute-name">样式:</span>
+        <input type="radio" class="radio-box" name="advancedSetting_style_type" checked value="default">默认
+        <input type="radio" class="radio-box" name="advancedSetting_style_type" value="custom">自定义
+        <div class="attribute-custom">
+            <div class="attribute-custom-item">
+                <span class="attribute-custom-name">样式:</span>
+                <select ms-duplex="@moduleSet.advancedSetting.graphicClassStyle.default">
+                    <option value="styleType_1" selected>样式1</option>
+                    <option value="styleType_2">样式2</option>
+                    <option value="styleType_3">样式3</option>
+                </select>
+                <div style="clear:both"></div>
+
+                <div ms-visible="@moduleSet.advancedSetting.graphicClassStyle.default=='styleType_1'">
+                <span class="attribute-custom-name">图片宽度:</span>
+                <input type="text" ms-duplex="@moduleSet.advancedSetting.graphicImgStyle_1.width">
+                <div style="clear:both"></div>
+                <span class="attribute-custom-name">图片高度:</span>
+                <input type="text" ms-duplex="@moduleSet.advancedSetting.graphicImgStyle_1.height">
+                </div>
+
+                <div ms-visible="@moduleSet.advancedSetting.graphicClassStyle.default=='styleType_2'">
+                    <span class="attribute-custom-name">图片宽度:</span>
+                    <input type="text" ms-duplex="@moduleSet.advancedSetting.graphicImgStyle_2.width">
+                    <div style="clear:both"></div>
+                    <span class="attribute-custom-name">图片高度:</span>
+                    <input type="text" ms-duplex="@moduleSet.advancedSetting.graphicImgStyle_2.height">
+                </div>
+
+                <div ms-visible="@moduleSet.advancedSetting.graphicClassStyle.default=='styleType_3'">
+                    <span class="attribute-custom-name">图片宽度:</span>
+                    <input type="text" ms-duplex="@moduleSet.advancedSetting.graphicImgStyle_3.width">
+                    <div style="clear:both"></div>
+                    <span class="attribute-custom-name">图片高度:</span>
+                    <input type="text" ms-duplex="@moduleSet.advancedSetting.graphicImgStyle_3.height">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="clear:both"></div>
+    <div class="attribute-content-item">
+        <span class="attribute-name">文字描述:</span>
+        <input type="radio" class="radio-box" name="advancedSetting_des" checked value="default">默认
+        <input type="radio" class="radio-box" name="advancedSetting_des" value="custom">自定义
+        <div class="attribute-custom">
+            <div class="attribute-custom-item">
+                <span class="attribute-custom-name">文字描述:</span>
+                <input type="text" ms-duplex="@moduleSet.advancedSetting.graphicDetles.des" style="width:200px; height: 200px">
+            </div>
+        </div>
+    </div>
+
+   </div>

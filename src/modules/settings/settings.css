@@ -1,0 +1,129 @@
+.attribute-wrap{
+    width: 100%;
+    position: relative;
+}
+
+.attribute-tab{
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    background-color: #E8E8E8;
+}
+.attribute-tab li{
+    float: left;
+    padding: 3px 10px;
+    text-align: center;
+    height: 34px;
+    line-height: 34px;
+    cursor: pointer;
+
+}
+
+.attribute-default,.attribute-advanced{
+    width: 100%;
+    padding: 10px 20px 1px;
+}
+.attribute-advanced,.attribute-default-title,.attribute-default-content{
+    display: none;
+}
+.attribute-title{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 10px;
+    text-indent: 5px;
+    color:#C00;
+    border-bottom: 1px dashed #DDD;
+    font-weight: bold;
+    font-size: 14px;
+}
+.attribute-content{
+    width: 100%;
+}
+
+.attribute-content-item{
+    width: 100%;
+    font-size: 12px;
+    min-height: 28px;
+}
+.attribute-content-item .attribute-name{
+    display: inline-block;
+    width: 80px;
+    text-align: right;
+}
+
+.attribute-content-item > input,.attribute-content-item > select,.attribute-content-item > button{
+    margin-left: 20px;
+}
+.attribute-content-item .remarks{
+    display: inline-block;
+    margin-left: 20px;
+    color: #C00;
+}
+.attribute-content-item .opcity-set{
+    width: 100px;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+    left: 26px;
+}
+
+.attribute-content-item .img-preview{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin: 0 10px;
+    border: 1px solid #ccc;
+}
+.attribute-custom{
+    padding: 0 0 10px 90px;
+    display: none;
+}
+
+.attribute-custom > .attribute-remarks{
+    color: #C00;
+    margin-left: 5px;
+}
+
+.attribute-custom-item{
+    width: 100%;
+    height: 22px;
+    line-height: 22px;
+    margin-top: 10px;
+}
+.attribute-custom-item > *{
+    float: left;
+    margin-right: 10px;
+}
+.attribute-custom-item .numbers{
+    width: 60px;
+}
+
+.attribute-custom-name{
+    display: block;
+    line-height: 22px;
+    width: 60px;
+    text-align: right;
+}
+
+.color-pick{
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+.attribute-album-content li{
+    overflow: hidden;
+}
+.attribute-album-content li *{
+    float: left;
+}
+.attribute-album-content li img{
+    width: 50px;
+    height: 20px;
+    margin-left: 15px;
+}
+span.attribute-custom{
+    padding:0;
+}

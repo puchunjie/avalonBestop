@@ -1,0 +1,97 @@
+{
+  "moduleName": "picture",
+  "moduleId": "",
+  "tools": [
+    {
+      "name": "设置",
+      "type": "settings",
+      "icon": "icon-shezhi"
+    },
+    {
+      "name": "删除",
+      "type": "delete",
+      "icon": "icon-shanchu"
+    },
+    {
+      "name": "复制",
+      "type": "copy",
+      "icon": "icon-fuzhi"
+    }
+  ],
+  "flag":true,
+  "moduleSet": {
+    "outLook": [
+      {
+        "styles": {
+          "borderRadius": 0,
+          "opacity":1,
+          "width": 250,
+          "height": 150,
+          "left": 0,
+          "top": 0,
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "marginTop":0,
+          "marginBottom":0,
+          "marginRight":0,
+          "marginLeft":0,
+          "cursor": "move",
+          "position": "absolute"
+        }
+      },
+      {
+        "beforeHover":{
+          "backgroundColor": "",
+          "backgroundImage": "",
+          "backgroundPosition": "left center",
+          "backgroundRepeat": "repeat-x",
+          "borderTopColor": "#ccc",
+          "borderTopWidth": 1,
+          "borderTopStyle": "solid",
+          "borderBottomColor": "#ccc",
+          "borderBottomWidth": 1,
+          "borderBottomStyle": "solid",
+          "borderLeftColor": "#ccc",
+          "borderLeftWidth": 1,
+          "borderLeftStyle": "solid",
+          "borderRightColor": "#ccc",
+          "borderRightWidth": 1,
+          "borderRightStyle": "solid",
+          "fontSize":14,
+          "fontFamily":"微软雅黑"
+        }
+      },
+      {
+        "hoverStyle": {
+          "backgroundColor": "",
+          "backgroundImage": "",
+          "backgroundPosition": "left center",
+          "backgroundRepeat": "repeat-x",
+          "borderTopColor": "#ccc",
+          "borderTopWidth": 1,
+          "borderTopStyle": "solid",
+          "borderBottomColor": "#ccc",
+          "borderBottomWidth": 1,
+          "borderBottomStyle": "solid",
+          "borderLeftColor": "#ccc",
+          "borderLeftWidth": 1,
+          "borderLeftStyle": "solid",
+          "borderRightColor": "#ccc",
+          "borderRightWidth": 1,
+          "borderRightStyle": "solid",
+          "fontSize":14,
+          "fontFamily":"微软雅黑"
+        }
+      }
+    ],
+    "moduleTitle": null,
+    "moduleContent": null,
+    "advancedSetting": {
+      "picturesrc": "http://imgsrc.baidu.com/forum/pic/item/a275666b3b092e466a60fbfe.jpg",
+      "picturehref":"bst.index.html",
+      "picturetarget":"_self"
+    }
+  }
+}

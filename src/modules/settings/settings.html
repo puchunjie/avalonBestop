@@ -1,0 +1,1907 @@
+<div class="attribute-wrap">
+    <ul class="attribute-tab">
+        <li ms-click="@showPanel('attribute-default')">外观</li>
+        <li ms-if="@moduleSet.moduleTitle !== null" ms-click="@showPanel('attribute-default-title')">标题栏</li>
+        <li ms-if="@moduleSet.moduleContent !== null" ms-click="@showPanel('attribute-default-content')">内容区</li>
+        <li ms-click="@showPanel('attribute-advanced')">高级设置</li>
+    </ul>
+    <!--外观-->
+    <div class="attribute-default">
+        <div class="attribute-title">默认状态</div>
+        <div class="attribute-content">
+            <!--字体-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">文字:</span>
+                <input type="radio" class="radio-box" name="outword" checked value="default"
+                       ms-click="@setDefault([@moduleSet.outLook.beforeHover,@moduleSet.outLook.beforeHover],[@defaultObj.outLook.beforeHover.fontSize,@defaultObj.outLook.beforeHover.fontFamily],['fontSize','fontFamily'])">默认
+                <input type="radio" class="radio-box" name="outword" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">字号:</span>
+                        <select ms-duplex="@moduleSet.outLook.beforeHover.fontSize">
+                            <option value="12">12px</option>
+                            <option value="13">13px</option>
+                            <option value="14">14px</option>
+                            <option value="15">15px</option>
+                            <option value="16">16px</option>
+                            <option value="17">17px</option>
+                            <option value="18">18px</option>
+                            <option value="19">19px</option>
+                            <option value="20">20px</option>
+                        </select>
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">字体:</span>
+                        <select ms-duplex="@moduleSet.outLook.beforeHover.fontFamily">
+                            <option value="SimSun">宋体</option>
+                            <option value="PMingLiU">新细明体</option>
+                            <option value="FangSong_GB2312">仿宋_GB2312</option>
+                            <option value="微软雅黑">微软雅黑</option>
+                            <option value="隶书">隶书</option>
+                            <option value="幼圆">幼圆</option>
+                            <option value="STKaiti">华文楷体</option>
+                            <option value="方正舒体">方正舒体</option>
+                            <option value="华文彩云">华文彩云</option>
+                            <option value="华文行楷">华文行楷</option>
+                            <option value="华文宋体">华文宋体</option>
+                            <option value="Arial">Arial</option>
+                            <option value="Tahoma">Tahoma</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--宽高-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">宽高:</span>
+                <input type="radio" class="radio-box" name="widhei" checked value="default"
+                       ms-click="@setDefault([@moduleSet.outLook.styles,@moduleSet.outLook.styles],[@defaultObj.outLook.styles.width,@defaultObj.outLook.styles.height],['width','height'])">默认
+                <input type="radio" class="radio-box" name="widhei" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">宽度:</span>
+                        <input class="numbers" type="text" ms-duplex-number="@moduleSet.outLook.styles.width">
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <input class="numbers" type="text" ms-duplex-number="@moduleSet.outLook.styles.height">
+                        像素
+                    </div>
+                </div>
+            </div>
+            <!--外边距-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">外边距:</span>
+                <input type="radio" class="radio-box" name="outmargin" checked value="default"
+                       ms-click="@setDefault([@moduleSet.outLook.styles,@moduleSet.outLook.styles,@moduleSet.outLook.styles,@moduleSet.outLook.styles],[@defaultObj.outLook.styles.marginTop,@defaultObj.outLook.styles.marginBottom,@defaultObj.outLook.styles.marginLeft,@defaultObj.outLook.styles.marginRight],['marginTop','marginBottom','marginLeft','marginRight'])">默认
+                <input type="radio" class="radio-box" name="outmargin" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">上:</span>
+                        <input class="numbers" type="text" ms-duplex-number="@moduleSet.outLook.styles.marginTop">
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">下:</span>
+                        <input class="numbers" type="text" ms-duplex-number="@moduleSet.outLook.styles.marginBottom">
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">左:</span>
+                        <input class="numbers" type="text" ms-duplex-number="@moduleSet.outLook.styles.marginLeft">
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">右:</span>
+                        <input class="numbers" type="text" ms-duplex-number="@moduleSet.outLook.styles.marginRight">
+                        像素
+                    </div>
+                </div>
+            </div>
+            <!--内边距-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">内边距:</span>
+                <input type="radio" class="radio-box" name="innerpadding" checked value="default"
+                       ms-click="@setDefault([@moduleSet.outLook.styles,@moduleSet.outLook.styles,@moduleSet.outLook.styles,@moduleSet.outLook.styles],[@defaultObj.outLook.styles.paddingTop,@defaultObj.outLook.styles.paddingBottom,@defaultObj.outLook.styles.paddingLeft,@defaultObj.outLook.styles.paddingRight],['paddingTop','paddingBottom','paddingLeft','paddingRight'])">默认
+                <input type="radio" class="radio-box" name="innerpadding" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">上:</span>
+                        <input class="numbers" type="text" ms-duplex-number="@moduleSet.outLook.styles.paddingTop">
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">下:</span>
+                        <input class="numbers" type="text" ms-duplex-number="@moduleSet.outLook.styles.paddingBottom">
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">左:</span>
+                        <input class="numbers" type="text" ms-duplex-number="@moduleSet.outLook.styles.paddingLeft">
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">右:</span>
+                        <input class="numbers" type="text" ms-duplex-number="@moduleSet.outLook.styles.paddingRight">
+                        像素
+                    </div>
+                </div>
+            </div>
+            <!--背景-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">背景:</span>
+                <input type="radio" class="radio-box" name="background" checked value="default"
+                       ms-click="@setDefault([@moduleSet.outLook.beforeHover,@moduleSet.outLook.beforeHover,@moduleSet.outLook.beforeHover,@moduleSet.outLook.beforeHover],[@defaultObj.outLook.beforeHover.backgroundColor,@defaultObj.outLook.beforeHover.backgroundImage,@defaultObj.outLook.beforeHover.backgroundPosition,@defaultObj.outLook.beforeHover.backgroundRepeat],['backgroundColor','backgroundImage','backgroundPosition','backgroundRepeat'])">默认
+                <input type="radio" class="radio-box" name="background" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="background" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <p class="attribute-remarks">注：需将标题栏和内容区的背景清除，才可以看到效果</p>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">背景颜色:</span>
+                        <input type="text" class="color-pick" valName="moduleSet.outLook.beforeHover.backgroundColor"
+                               ms-duplex="@moduleSet.outLook.beforeHover.backgroundColor">
+                        <button ms-click="@setFliter">取消背景</button>
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">背景图片:</span>
+                        <input type="text" disabled ms-attr="{value:@moduleSet.outLook.beforeHover.backgroundImage}">
+                        <button>上传</button>
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">背景位置:</span>
+                        <select ms-duplex="@moduleSet.outLook.beforeHover.backgroundPosition">
+                            <option value="left top">左上</option>
+                            <option value="left center">左中</option>
+                            <option value="left bottom">左下</option>
+                            <option value="center top">中上</option>
+                            <option value="center">居中</option>
+                            <option value="center bottom">中下</option>
+                            <option value="right top">右上</option>
+                            <option value="right center">右中</option>
+                            <option value="right bottom">右下</option>
+                        </select>
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">平铺:</span>
+                        <select ms-duplex="@moduleSet.outLook.beforeHover.backgroundRepeat">
+                            <option value="no-repeat">不平铺</option>
+                            <option value="repeat">平铺</option>
+                            <option value="repeat-x">横向平铺</option>
+                            <option value="repeat-y">纵向平铺</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--圆角-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">圆角设置:</span>
+                <input type="radio" class="radio-box" name="fillet" checked value="default"
+                       ms-click="@setDefault([@moduleSet.outLook.styles],[@defaultObj.outLook.styles.borderRadius],['borderRadius'])">默认
+                <input type="radio" class="radio-box" name="fillet" value="custom" ms-click="@showCustom">自定义
+                <p class="remarks">注：需将标题栏和内容区的背景清除，才可以看到效果</p>
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">圆角边度:</span>
+                        <select ms-duplex="@moduleSet.outLook.styles.borderRadius">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="100%">100%</option>
+                        </select>
+                        像素
+                    </div>
+                </div>
+            </div>
+            <!--上边线-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">上边线:</span>
+                <input type="radio" class="radio-box" name="borderTop" checked value="default"
+                       ms-click="@setDefault([@moduleSet.outLook.beforeHover,@moduleSet.outLook.beforeHover,@moduleSet.outLook.beforeHover],[@defaultObj.outLook.beforeHover.borderTopColor,@defaultObj.outLook.beforeHover.borderTopWidth,@defaultObj.outLook.beforeHover.borderTopStyle],['borderTopColor','borderTopWidth','borderTopStyle'])">默认
+                <input type="radio" class="radio-box" name="borderTop" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="borderTop" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">颜色:</span>
+                        <input type="text" class="color-pick" valName="moduleSet.outLook.beforeHover.borderTopColor"
+                               ms-attr="{value:@moduleSet.outLook.beforeHover.borderTopColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <select ms-duplex="@moduleSet.outLook.beforeHover.borderTopWidth">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">样式:</span>
+                        <select ms-duplex="@moduleSet.outLook.beforeHover.borderTopStyle">
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点状</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--下边线-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">下边线:</span>
+                <input type="radio" class="radio-box" name="borderBottom" checked value="default"
+                       ms-click="@setDefault([@moduleSet.outLook.beforeHover,@moduleSet.outLook.beforeHover,@moduleSet.outLook.beforeHover],[@defaultObj.outLook.beforeHover.borderBottomColor,@defaultObj.outLook.beforeHover.borderBottomWidth,@defaultObj.outLook.beforeHover.borderBottomStyle],['borderBottomColor','borderBottomWidth','borderBottomStyle'])">默认
+                <input type="radio" class="radio-box" name="borderBottom" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="borderBottom" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">颜色:</span>
+                        <input type="text" class="color-pick" valName="moduleSet.outLook.beforeHover.borderBottomColor"
+                               ms-attr="{value:@moduleSet.outLook.beforeHover.borderBottomColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <select ms-duplex="@moduleSet.outLook.beforeHover.borderBottomWidth">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">样式:</span>
+                        <select ms-duplex="@moduleSet.outLook.beforeHover.borderBottomStyle">
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点状</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--左边线-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">左边线:</span>
+                <input type="radio" class="radio-box" name="borderLeft" checked value="default"
+                       ms-click="@setDefault([@moduleSet.outLook.beforeHover,@moduleSet.outLook.beforeHover,@moduleSet.outLook.beforeHover],[@defaultObj.outLook.beforeHover.borderLeftColor,@defaultObj.outLook.beforeHover.borderLeftWidth,@defaultObj.outLook.beforeHover.borderLeftStyle],['borderLeftColor','borderLeftWidth','borderLeftStyle'])">默认
+                <input type="radio" class="radio-box" name="borderLeft" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="borderLeft" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">颜色:</span>
+                        <input type="text" class="color-pick" valName="moduleSet.outLook.beforeHover.borderLeftColor"
+                               ms-attr="{value:@moduleSet.outLook.beforeHover.borderLeftColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <select ms-duplex="@moduleSet.outLook.beforeHover.borderLeftWidth">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">样式:</span>
+                        <select ms-duplex="@moduleSet.outLook.beforeHover.borderLeftStyle">
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点状</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--右边线-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">右边线:</span>
+                <input type="radio" class="radio-box" name="borderRight" checked value="default"
+                       ms-click="@setDefault([@moduleSet.outLook.beforeHover,@moduleSet.outLook.beforeHover,@moduleSet.outLook.beforeHover],[@defaultObj.outLook.beforeHover.borderRightColor,@defaultObj.outLook.beforeHover.borderRightWidth,@defaultObj.outLook.beforeHover.borderRightStyle],['borderRightColor','borderRightWidth','borderRightStyle'])">默认
+                <input type="radio" class="radio-box" name="borderRight" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="borderRight" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">颜色:</span>
+                        <input type="text" class="color-pick" valName="moduleSet.outLook.beforeHover.borderRightColor"
+                               ms-attr="{value:@moduleSet.outLook.beforeHover.borderRightColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <select ms-duplex="@moduleSet.outLook.beforeHover.borderRightWidth">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">样式:</span>
+                        <select ms-duplex="@moduleSet.outLook.beforeHover.borderRightStyle">
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点状</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--透明度-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">透明度:</span>
+                <input type="range" min="0" max="10" ms-duplex-number="@moduleSet.outLook.styles.opacity">
+            </div>
+        </div>
+        <div class="attribute-title">鼠标经过状态</div>
+        <div class="attribute-content">
+            <!--背景-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">背景:</span>
+                <input type="radio" class="radio-box" name="backgroundHover" checked value="default"
+                       ms-click="@setDefault([@moduleSet.outLook.hoverStyle,@moduleSet.outLook.hoverStyle,@moduleSet.outLook.hoverStyle,@moduleSet.outLook.hoverStyle],[@defaultObj.outLook.hoverStyle.backgroundColor,@defaultObj.outLook.hoverStyle.backgroundImage,@defaultObj.outLook.hoverStyle.backgroundPosition,@defaultObj.outLook.hoverStyle.borderLeftStyle],['backgroundColor','backgroundImage','backgroundPosition','borderLeftStyle'])">默认
+                <input type="radio" class="radio-box" name="backgroundHover" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="backgroundHover" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <p class="attribute-remarks">注：需将标题栏和内容区的背景清除，才可以看到效果</p>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">背景颜色:</span>
+                        <input type="text" class="color-pick" valName="moduleSet.outLook.hoverStyle.backgroundColor"
+                               ms-attr="{value:@moduleSet.outLook.hoverStyle.backgroundColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">背景图片:</span>
+                        <input type="text" disabled ms-attr="{value:@moduleSet.outLook.hoverStyle.backgroundImage}">
+                        <button>上传</button>
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">背景位置:</span>
+                        <select ms-duplex="@moduleSet.outLook.hoverStyle.backgroundPosition">
+                            <option value="left top">左上</option>
+                            <option value="left center">左中</option>
+                            <option value="left bottom">左下</option>
+                            <option value="center top">中上</option>
+                            <option value="center">居中</option>
+                            <option value="center bottom">中下</option>
+                            <option value="right top">右上</option>
+                            <option value="right center">右中</option>
+                            <option value="right bottom">右下</option>
+                        </select>
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">平铺:</span>
+                        <select ms-duplex="@moduleSet.outLook.hoverStyle.borderLeftStyle">
+                            <option value="no-repeat">不平铺</option>
+                            <option value="repeat">平铺</option>
+                            <option value="repeat-x">横向平铺</option>
+                            <option value="repeat-y">纵向平铺</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--上边线-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">上边线:</span>
+                <input type="radio" class="radio-box" name="borderTopHover" checked value="default"
+                       ms-click="@setDefault([@moduleSet.outLook.hoverStyle,@moduleSet.outLook.hoverStyle,@moduleSet.outLook.hoverStyle],[@defaultObj.outLook.hoverStyle.borderTopColor,@defaultObj.outLook.hoverStyle.borderTopWidth,@defaultObj.outLook.hoverStyle.borderTopStyle],['borderTopColor','borderTopColor','borderTopStyle'])">默认
+                <input type="radio" class="radio-box" name="borderTopHover" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="borderTopHover" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">颜色:</span>
+                        <input type="text" class="color-pick" valName="moduleSet.outLook.hoverStyle.borderTopColor"
+                               ms-attr="{value:@moduleSet.outLook.hoverStyle.borderTopColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <select ms-duplex="@moduleSet.outLook.hoverStyle.borderTopWidth">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">样式:</span>
+                        <select ms-duplex="@moduleSet.outLook.hoverStyle.borderTopStyle">
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点状</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--下边线-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">下边线:</span>
+                <input type="radio" class="radio-box" name="borderBottomHover" checked value="default"
+                       ms-click="@setDefault([@moduleSet.outLook.hoverStyle,@moduleSet.outLook.hoverStyle,@moduleSet.outLook.hoverStyle],[@defaultObj.outLook.hoverStyle.borderBottomColor,@defaultObj.outLook.hoverStyle.borderBottomWidth,@defaultObj.outLook.hoverStyle.borderBottomStyle],['borderBottomColor','borderBottomWidth','borderBottomStyle'])">默认
+                <input type="radio" class="radio-box" name="borderBottomHover" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="borderBottomHover" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">颜色:</span>
+                        <input type="text" class="color-pick" valName="moduleSet.outLook.hoverStyle.borderBottomColor"
+                               ms-attr="{value:@moduleSet.outLook.hoverStyle.borderBottomColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <select ms-duplex="@moduleSet.outLook.hoverStyle.borderBottomWidth">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">样式:</span>
+                        <select ms-duplex="@moduleSet.outLook.hoverStyle.borderBottomStyle">
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点状</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--左边线-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">左边线:</span>
+                <input type="radio" class="radio-box" name="borderLeftHover" checked value="default"
+                       ms-click="@setDefault([@moduleSet.outLook.hoverStyle,@moduleSet.outLook.hoverStyle,@moduleSet.outLook.hoverStyle],[@defaultObj.outLook.hoverStyle.borderLeftColor,@defaultObj.outLook.hoverStyle.borderLeftWidth,@defaultObj.outLook.hoverStyle.borderLeftStyle],['borderLeftColor','borderLeftWidth','borderLeftStyle'])">默认
+                <input type="radio" class="radio-box" name="borderLeftHover" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="borderLeftHover" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">颜色:</span>
+                        <input type="text" class="color-pick" valName="moduleSet.outLook.hoverStyle.borderLeftColor"
+                               ms-attr="{value:@moduleSet.outLook.hoverStyle.borderLeftColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <select ms-duplex="@moduleSet.outLook.hoverStyle.borderLeftWidth">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">样式:</span>
+                        <select ms-duplex="@moduleSet.outLook.hoverStyle.borderLeftStyle">
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点状</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--右边线-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">右边线:</span>
+                <input type="radio" class="radio-box" name="borderRightHover" checked value="default"
+                       ms-click="@setDefault([@moduleSet.outLook.hoverStyle,@moduleSet.outLook.hoverStyle,@moduleSet.outLook.hoverStyle],[@defaultObj.outLook.hoverStyle.borderRightColor,@defaultObj.outLook.hoverStyle.borderRightWidth,@defaultObj.outLook.hoverStyle.borderRightStyle],['borderRightColor','borderRightWidth','borderRightStyle'])">默认
+                <input type="radio" class="radio-box" name="borderRightHover" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="borderRightHover" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">颜色:</span>
+                        <input type="text" class="color-pick" valName="moduleSet.outLook.hoverStyle.borderRightColor"
+                               ms-attr="{value:@moduleSet.outLook.hoverStyle.borderRightColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <select ms-duplex="@moduleSet.outLook.hoverStyle.borderRightWidth">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">样式:</span>
+                        <select ms-duplex="@moduleSet.outLook.hoverStyle.borderRightStyle">
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点状</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--标题栏-->
+    <div class="attribute-default-title">
+        <div class="attribute-title">默认状态</div>
+        <div class="attribute-content">
+            <!--显隐-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">显隐:</span>
+                <input type="radio" class="radio-box" name="showHide" checked value="default"
+                       ms-on-click="@hideTitle(true)">显示
+                <input type="radio" class="radio-box" name="showHide" value="custom" ms-on-click="@hideTitle(false)">隐藏
+            </div>
+            <!--字体-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">文字:</span>
+                <input type="radio" class="radio-box" name="title"
+                       checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleTitle.beforeHover,@moduleSet.moduleTitle.beforeHover],[@defaultObj.moduleTitle.beforeHover.fontSize,@defaultObj.moduleTitle.beforeHover.fontFamily],['fontSize','fontFamily'])">默认
+                <input type="radio" class="radio-box" name="title" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">字号:</span>
+                        <select ms-duplex="@moduleSet.moduleTitle.beforeHover.fontSize">
+                            <option value="12">12px</option>
+                            <option value="13">13px</option>
+                            <option value="14">14px</option>
+                            <option value="15">15px</option>
+                            <option value="16">16px</option>
+                            <option value="17">17px</option>
+                            <option value="18">18px</option>
+                            <option value="19">19px</option>
+                            <option value="20">20px</option>
+                        </select>
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">字体:</span>
+                        <select ms-duplex="@moduleSet.moduleTitle.beforeHover.fontFamily">
+                            <option value="SimSun">宋体</option>
+                            <option value="PMingLiU">新细明体</option>
+                            <option value="FangSong_GB2312">仿宋_GB2312</option>
+                            <option value="微软雅黑">微软雅黑</option>
+                            <option value="隶书">隶书</option>
+                            <option value="幼圆">幼圆</option>
+                            <option value="STKaiti">华文楷体</option>
+                            <option value="方正舒体">方正舒体</option>
+                            <option value="华文彩云">华文彩云</option>
+                            <option value="华文行楷">华文行楷</option>
+                            <option value="华文宋体">华文宋体</option>
+                            <option value="Arial">Arial</option>
+                            <option value="Tahoma">Tahoma</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--宽高-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">宽高:</span>
+                <input type="radio" class="radio-box" name="title_widhei" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleTitle.styles,@moduleSet.moduleTitle.styles],[@defaultObj.moduleTitle.styles.width,@defaultObj.moduleTitle.styles.height],['width','height'])">默认
+                <input type="radio" class="radio-box" name="title_widhei" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">宽度:</span>
+                        <input class="numbers" type="text" ms-duplex-number="@moduleSet.moduleTitle.styles.width">
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <input class="numbers" type="text" ms-duplex-number="@moduleSet.moduleTitle.styles.height">
+                        像素
+                    </div>
+                </div>
+            </div>
+            <!--行高-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">行高:</span>
+                <input type="radio" class="radio-box" name="title_lineHeight" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleTitle.styles],[@defaultObj.moduleTitle.styles.lineHeight],['lineHeight'])">默认
+                <input type="radio" class="radio-box" name="title_lineHeight" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">行高:</span>
+                        <input class="numbers" type="text" ms-duplex-number="@moduleSet.moduleTitle.styles.lineHeight">
+                        像素
+                    </div>
+                </div>
+            </div>
+            <!--外边距-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">外边距:</span>
+                <input type="radio" class="radio-box" name="title_outmargin" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleTitle.styles,@moduleSet.moduleTitle.styles,@moduleSet.moduleTitle.styles,@moduleSet.moduleTitle.styles],[@defaultObj.moduleTitle.styles.marginTop,@defaultObj.moduleTitle.styles.marginBottom,@defaultObj.moduleTitle.styles.marginLeft,@defaultObj.moduleTitle.styles.marginRight],['marginTop','marginBottom','marginLeft','marginRight'])">默认
+                <input type="radio" class="radio-box" name="title_outmargin" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">上:</span>
+                        <input class="numbers" type="text" ms-duplex-number="@moduleSet.moduleTitle.styles.marginTop">
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">下:</span>
+                        <input class="numbers" type="text"
+                               ms-duplex-number="@moduleSet.moduleTitle.styles.marginBottom">
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">左:</span>
+                        <input class="numbers" type="text" ms-duplex-number="@moduleSet.moduleTitle.styles.marginLeft">
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">右:</span>
+                        <input class="numbers" type="text" ms-duplex-number="@moduleSet.moduleTitle.styles.marginRight">
+                        像素
+                    </div>
+                </div>
+            </div>
+            <!--内边距-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">内边距:</span>
+                <input type="radio" class="radio-box" name="title_innerpadding" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleTitle.styles,@moduleSet.moduleTitle.styles,@moduleSet.moduleTitle.styles,@moduleSet.moduleTitle.styles],[@defaultObj.moduleTitle.styles.paddingTop,@defaultObj.moduleTitle.styles.paddingBottom,@defaultObj.moduleTitle.styles.paddingLeft,@defaultObj.moduleTitle.styles.paddingRight],['paddingTop','paddingBottom','paddingLeft','paddingRight'])">默认
+                <input type="radio" class="radio-box" name="title_innerpadding" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">上:</span>
+                        <input class="numbers" type="text" ms-duplex-number="@moduleSet.moduleTitle.styles.paddingTop">
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">下:</span>
+                        <input class="numbers" type="text"
+                               ms-duplex-number="@moduleSet.moduleTitle.styles.paddingBottom">
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">左:</span>
+                        <input class="numbers" type="text" ms-duplex-number="@moduleSet.moduleTitle.styles.paddingLeft">
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">右:</span>
+                        <input class="numbers" type="text"
+                               ms-duplex-number="@moduleSet.moduleTitle.styles.paddingRight">
+                        像素
+                    </div>
+                </div>
+            </div>
+            <!--背景-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">背景:</span>
+                <input type="radio" class="radio-box" name="title_background" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleTitle.beforeHover,@moduleSet.moduleTitle.beforeHover,@moduleSet.moduleTitle.beforeHover,@moduleSet.moduleTitle.beforeHover],[@defaultObj.moduleTitle.beforeHover.backgroundColor,@defaultObj.moduleTitle.beforeHover.backgroundImage,@defaultObj.moduleTitle.beforeHover.backgroundPosition,@defaultObj.moduleTitle.beforeHover.backgroundRepeat],['backgroundColor','backgroundImage','backgroundPosition','backgroundRepeat'])">默认
+                <input type="radio" class="radio-box" name="title_background" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="title_background" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <p class="attribute-remarks">注：需将标题栏和内容区的背景清除，才可以看到效果</p>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">背景颜色:</span>
+                        <input type="text" class="color-pick"
+                               valName="moduleSet.moduleTitle.beforeHover.backgroundColor"
+                               ms-attr="{value:@moduleSet.moduleTitle.beforeHover.backgroundColor}">
+                        <button ms-click="@setFliter">取消背景</button>
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">背景图片:</span>
+                        <input type="text" disabled
+                               ms-attr="{value:@moduleSet.moduleTitle.beforeHover.backgroundImage}">
+                        <button>上传</button>
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">背景位置:</span>
+                        <select ms-duplex="@moduleSet.moduleTitle.beforeHover.backgroundPosition">
+                            <option value="left top">左上</option>
+                            <option value="left center">左中</option>
+                            <option value="left bottom">左下</option>
+                            <option value="center top">中上</option>
+                            <option value="center">居中</option>
+                            <option value="center bottom">中下</option>
+                            <option value="right top">右上</option>
+                            <option value="right center">右中</option>
+                            <option value="right bottom">右下</option>
+                        </select>
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">平铺:</span>
+                        <select ms-duplex="@moduleSet.moduleTitle.beforeHover.backgroundRepeat">
+                            <option value="no-repeat">不平铺</option>
+                            <option value="repeat">平铺</option>
+                            <option value="repeat-x">横向平铺</option>
+                            <option value="repeat-y">纵向平铺</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--圆角-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">圆角设置:</span>
+                <input type="radio" class="radio-box" name="title_fillet" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleTitle.styles],[@defaultObj.moduleTitle.styles.borderRadius],['borderRadius'])">默认
+                <input type="radio" class="radio-box" name="title_fillet" value="custom" ms-click="@showCustom">自定义
+                <p class="remarks">注：需将标题栏和内容区的背景清除，才可以看到效果</p>
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">圆角边度:</span>
+                        <select ms-duplex="@moduleSet.moduleTitle.styles.borderRadius">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="100%">100%</option>
+                        </select>
+                        像素
+                    </div>
+                </div>
+            </div>
+            <!--上边线-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">上边线:</span>
+                <input type="radio" class="radio-box" name="title_borderTop" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleTitle.beforeHover,@moduleSet.moduleTitle.beforeHover,@moduleSet.moduleTitle.beforeHover],[@defaultObj.moduleTitle.beforeHover.borderTopColor,@defaultObj.moduleTitle.beforeHover.borderTopWidth,@defaultObj.moduleTitle.beforeHover.borderTopStyle],['borderTopColor','borderTopWidth','borderTopStyle'])">默认
+                <input type="radio" class="radio-box" name="title_borderTop" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="title_borderTop" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">颜色:</span>
+                        <input type="text" class="color-pick" valName="moduleSet.moduleTitle.beforeHover.borderTopColor"
+                               ms-attr="{value:@moduleSet.moduleTitle.beforeHover.borderTopColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <select ms-duplex="@moduleSet.moduleTitle.beforeHover.borderTopWidth">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">样式:</span>
+                        <select ms-duplex="@moduleSet.moduleTitle.beforeHover.borderTopStyle">
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点状</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--下边线-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">下边线:</span>
+                <input type="radio" class="radio-box" name="title_borderBottom" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleTitle.beforeHover,@moduleSet.moduleTitle.beforeHover,@moduleSet.moduleTitle.beforeHover],[@defaultObj.moduleTitle.beforeHover.borderBottomColor,@defaultObj.moduleTitle.beforeHover.borderBottomWidth,@defaultObj.moduleTitle.beforeHover.borderBottomStyle],['borderBottomColor','borderBottomWidth','borderBottomStyle'])">默认
+                <input type="radio" class="radio-box" name="title_borderBottom" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="title_borderBottom" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">颜色:</span>
+                        <input type="text" class="color-pick"
+                               valName="moduleSet.moduleTitle.beforeHover.borderBottomColor"
+                               ms-attr="{value:@moduleSet.moduleTitle.beforeHover.borderBottomColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <select ms-duplex="@moduleSet.moduleTitle.beforeHover.borderBottomWidth">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">样式:</span>
+                        <select ms-duplex="@moduleSet.moduleTitle.beforeHover.borderBottomStyle">
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点状</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--左边线-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">左边线:</span>
+                <input type="radio" class="radio-box" name="title_borderLeft" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleTitle.beforeHover,@moduleSet.moduleTitle.beforeHover,@moduleSet.moduleTitle.beforeHover],[@defaultObj.moduleTitle.beforeHover.borderLeftColor,@defaultObj.moduleTitle.beforeHover.borderLeftWidth,@defaultObj.moduleTitle.beforeHover.borderLeftStyle],['borderLeftColor','borderLeftWidth','borderLeftStyle'])">默认
+                <input type="radio" class="radio-box" name="title_borderLeft" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="title_borderLeft" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">颜色:</span>
+                        <input type="text" class="color-pick"
+                               valName="moduleSet.moduleTitle.beforeHover.borderLeftColor"
+                               ms-attr="{value:@moduleSet.moduleTitle.beforeHover.borderLeftColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <select ms-duplex="@moduleSet.moduleTitle.beforeHover.borderLeftWidth">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">样式:</span>
+                        <select ms-duplex="@moduleSet.moduleTitle.beforeHover.borderLeftStyle">
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点状</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--右边线-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">右边线:</span>
+                <input type="radio" class="radio-box" name="title_borderRight" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleTitle.beforeHover,@moduleSet.moduleTitle.beforeHover,@moduleSet.moduleTitle.beforeHover],[@defaultObj.moduleTitle.beforeHover.borderRightColor,@defaultObj.moduleTitle.beforeHover.borderRightWidth,@defaultObj.moduleTitle.beforeHover.borderRightStyle],['borderRightColor','borderRightWidth','borderRightStyle'])">默认
+                <input type="radio" class="radio-box" name="title_borderRight" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="title_borderRight" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">颜色:</span>
+                        <input type="text" class="color-pick"
+                               valName="moduleSet.moduleTitle.beforeHover.borderRightColor"
+                               ms-attr="{value:@moduleSet.moduleTitle.beforeHover.borderRightColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <select ms-duplex="@moduleSet.moduleTitle.beforeHover.borderRightWidth">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">样式:</span>
+                        <select ms-duplex="@moduleSet.moduleTitle.beforeHover.borderRightStyle">
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点状</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--透明度-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">透明度:</span>
+                <input type="range" min="0" max="10" ms-duplex-number="@moduleSet.moduleTitle.styles.opacity">
+            </div>
+        </div>
+        <div class="attribute-title">鼠标经过状态</div>
+        <div class="attribute-content">
+            <!--背景-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">背景:</span>
+                <input type="radio" class="radio-box" name="title_backgroundHover" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleTitle.hoverStyle,@moduleSet.moduleTitle.hoverStyle,@moduleSet.moduleTitle.hoverStyle,@moduleSet.moduleTitle.hoverStyle],[@defaultObj.moduleTitle.hoverStyle.backgroundColor,@defaultObj.moduleTitle.hoverStyle.backgroundImage,@defaultObj.moduleTitle.hoverStyle.backgroundPosition,@defaultObj.moduleTitle.hoverStyle.borderLeftStyle],['backgroundColor','backgroundImage','backgroundPosition','borderLeftStyle'])">默认
+                <input type="radio" class="radio-box" name="title_backgroundHover" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="title_backgroundHover" value="custom"
+                       ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <p class="attribute-remarks">注：需将标题栏和内容区的背景清除，才可以看到效果</p>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">背景颜色:</span>
+                        <input type="text" class="color-pick" valName="moduleSet.moduleTitle.hoverStyle.backgroundColor"
+                               ms-attr="{value:@moduleSet.moduleTitle.hoverStyle.backgroundColor}">
+                        <button ms-click="@setFliter">取消背景</button>
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">背景图片:</span>
+                        <input type="text" disabled ms-attr="{value:@moduleSet.moduleTitle.hoverStyle.backgroundImage}">
+                        <button>上传</button>
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">背景位置:</span>
+                        <select ms-duplex="@moduleSet.moduleTitle.hoverStyle.backgroundPosition">
+                            <option value="left top">左上</option>
+                            <option value="left center">左中</option>
+                            <option value="left bottom">左下</option>
+                            <option value="center top">中上</option>
+                            <option value="center">居中</option>
+                            <option value="center bottom">中下</option>
+                            <option value="right top">右上</option>
+                            <option value="right center">右中</option>
+                            <option value="right bottom">右下</option>
+                        </select>
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">平铺:</span>
+                        <select ms-duplex="@moduleSet.moduleTitle.hoverStyle.borderLeftStyle">
+                            <option value="no-repeat">不平铺</option>
+                            <option value="repeat">平铺</option>
+                            <option value="repeat-x">横向平铺</option>
+                            <option value="repeat-y">纵向平铺</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--上边线-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">上边线:</span>
+                <input type="radio" class="radio-box" name="title_borderTopHover" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleTitle.hoverStyle,@moduleSet.moduleTitle.hoverStyle,@moduleSet.moduleTitle.hoverStyle],[@defaultObj.moduleTitle.hoverStyle.borderTopColor,@defaultObj.moduleTitle.hoverStyle.borderTopWidth,@defaultObj.moduleTitle.hoverStyle.borderTopStyle],['borderTopColor','borderTopColor','borderTopStyle'])">默认
+                <input type="radio" class="radio-box" name="title_borderTopHover" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="title_borderTopHover" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">颜色:</span>
+                        <input type="text" class="color-pick" valName="moduleSet.moduleTitle.hoverStyle.borderTopColor"
+                               ms-attr="{value:@moduleSet.moduleTitle.hoverStyle.borderTopColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <select ms-duplex="@moduleSet.moduleTitle.hoverStyle.borderTopWidth">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">样式:</span>
+                        <select ms-duplex="@moduleSet.moduleTitle.hoverStyle.borderTopStyle">
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点状</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--下边线-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">下边线:</span>
+                <input type="radio" class="radio-box" name="title_borderBottomHover" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleTitle.hoverStyle,@moduleSet.moduleTitle.hoverStyle,@moduleSet.moduleTitle.hoverStyle],[@defaultObj.moduleTitle.hoverStyle.borderBottomColor,@defaultObj.moduleTitle.hoverStyle.borderBottomWidth,@defaultObj.moduleTitle.hoverStyle.borderBottomStyle],['borderBottomColor','borderBottomWidth','borderBottomStyle'])">默认
+                <input type="radio" class="radio-box" name="title_borderBottomHover" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="title_borderBottomHover" value="custom"
+                       ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">颜色:</span>
+                        <input type="text" class="color-pick"
+                               valName="moduleSet.moduleTitle.hoverStyle.borderBottomColor"
+                               ms-attr="{value:@moduleSet.moduleTitle.hoverStyle.borderBottomColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <select ms-duplex="@moduleSet.moduleTitle.hoverStyle.borderBottomWidth">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">样式:</span>
+                        <select ms-duplex="@moduleSet.moduleTitle.hoverStyle.borderBottomStyle">
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点状</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--左边线-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">左边线:</span>
+                <input type="radio" class="radio-box" name="title_borderLeftHover" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleTitle.hoverStyle,@moduleSet.moduleTitle.hoverStyle,@moduleSet.moduleTitle.hoverStyle],[@defaultObj.moduleTitle.hoverStyle.borderLeftColor,@defaultObj.moduleTitle.hoverStyle.borderLeftWidth,@defaultObj.moduleTitle.hoverStyle.borderLeftStyle],['borderLeftColor','borderLeftWidth','borderLeftStyle'])">默认
+                <input type="radio" class="radio-box" name="title_borderLeftHover" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="title_borderLeftHover" value="custom"
+                       ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">颜色:</span>
+                        <input type="text" class="color-pick" valName="moduleSet.moduleTitle.hoverStyle.borderLeftColor"
+                               ms-attr="{value:@moduleSet.moduleTitle.hoverStyle.borderLeftColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <select ms-duplex="@moduleSet.moduleTitle.hoverStyle.borderLeftWidth">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">样式:</span>
+                        <select ms-duplex="@moduleSet.moduleTitle.hoverStyle.borderLeftStyle">
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点状</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--右边线-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">右边线:</span>
+                <input type="radio" class="radio-box" name="title_borderRightHover" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleTitle.hoverStyle,@moduleSet.moduleTitle.hoverStyle,@moduleSet.moduleTitle.hoverStyle],[@defaultObj.moduleTitle.hoverStyle.borderRightColor,@defaultObj.moduleTitle.hoverStyle.borderRightWidth,@defaultObj.moduleTitle.hoverStyle.borderRightStyle],['borderRightColor','borderRightWidth','borderRightStyle'])">默认
+                <input type="radio" class="radio-box" name="title_borderRightHover" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="title_borderRightHover" value="custom"
+                       ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">颜色:</span>
+                        <input type="text" class="color-pick"
+                               valName="moduleSet.moduleTitle.hoverStyle.borderRightColor"
+                               ms-attr="{value:@moduleSet.moduleTitle.hoverStyle.borderRightColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <select ms-duplex="@moduleSet.moduleTitle.hoverStyle.borderRightWidth">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">样式:</span>
+                        <select ms-duplex="@moduleSet.moduleTitle.hoverStyle.borderRightStyle">
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点状</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--内容区-->
+    <div class="attribute-default-content">
+        <div class="attribute-title">默认状态</div>
+        <div class="attribute-content">
+            <!--字体-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">文字:</span>
+                <input type="radio" class="radio-box" name="detail_outword"
+                       checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleContent.beforeHover,@moduleSet.moduleContent.beforeHover],[@defaultObj.moduleContent.beforeHover.fontSize,@defaultObj.moduleContent.beforeHover.fontFamily],['fontSize','fontFamily'])">默认
+                <input type="radio" class="radio-box" name="detail_outword" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">字号:</span>
+                        <select ms-duplex="@moduleSet.moduleContent.beforeHover.fontSize">
+                            <option value="12">12px</option>
+                            <option value="13">13px</option>
+                            <option value="14">14px</option>
+                            <option value="15">15px</option>
+                            <option value="16">16px</option>
+                            <option value="17">17px</option>
+                            <option value="18">18px</option>
+                            <option value="19">19px</option>
+                            <option value="20">20px</option>
+                        </select>
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">字体:</span>
+                        <select ms-duplex="@moduleSet.moduleContent.beforeHover.fontFamily">
+                            <option value="SimSun">宋体</option>
+                            <option value="PMingLiU">新细明体</option>
+                            <option value="FangSong_GB2312">仿宋_GB2312</option>
+                            <option value="微软雅黑">微软雅黑</option>
+                            <option value="隶书">隶书</option>
+                            <option value="幼圆">幼圆</option>
+                            <option value="STKaiti">华文楷体</option>
+                            <option value="方正舒体">方正舒体</option>
+                            <option value="华文彩云">华文彩云</option>
+                            <option value="华文行楷">华文行楷</option>
+                            <option value="华文宋体">华文宋体</option>
+                            <option value="Arial">Arial</option>
+                            <option value="Tahoma">Tahoma</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--宽高-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">宽高:</span>
+                <input type="radio" class="radio-box" name="detail_widhei" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleContent.styles,@moduleSet.moduleContent.styles],[@defaultObj.moduleContent.styles.width,@defaultObj.moduleContent.styles.height],['width','height'])">默认
+                <input type="radio" class="radio-box" name="detail_widhei" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">宽度:</span>
+                        <input class="numbers" type="text" ms-duplex-number="@moduleSet.moduleContent.styles.width">
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <input class="numbers" type="text" ms-duplex-number="@moduleSet.moduleContent.styles.height">
+                        像素
+                    </div>
+                </div>
+            </div>
+            <!--行高-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">行高:</span>
+                <input type="radio" class="radio-box" name="detail_lineHeight" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleContent.styles],[@defaultObj.moduleContent.styles.lineHeight],['lineHeight'])">默认
+                <input type="radio" class="radio-box" name="detail_lineHeight" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">行高:</span>
+                        <input class="numbers" type="text"
+                               ms-duplex-number="@moduleSet.moduleContent.styles.lineHeight">
+                        像素
+                    </div>
+                </div>
+            </div>
+            <!--外边距-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">外边距:</span>
+                <input type="radio" class="radio-box" name="detail_outmargin" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleContent.styles,@moduleSet.moduleContent.styles,@moduleSet.moduleContent.styles,@moduleSet.moduleContent.styles],[@defaultObj.moduleContent.styles.marginTop,@defaultObj.moduleContent.styles.marginBottom,@defaultObj.moduleContent.styles.marginLeft,@defaultObj.moduleContent.styles.marginRight],['marginTop','marginBottom','marginLeft','marginRight'])">默认
+                <input type="radio" class="radio-box" name="detail_outmargin" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">上:</span>
+                        <input class="numbers" type="text" ms-duplex-number="@moduleSet.moduleContent.styles.marginTop">
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">下:</span>
+                        <input class="numbers" type="text"
+                               ms-duplex-number="@moduleSet.moduleContent.styles.marginBottom">
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">左:</span>
+                        <input class="numbers" type="text"
+                               ms-duplex-number="@moduleSet.moduleContent.styles.marginLeft">
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">右:</span>
+                        <input class="numbers" type="text"
+                               ms-duplex-number="@moduleSet.moduleContent.styles.marginRight">
+                        像素
+                    </div>
+                </div>
+            </div>
+            <!--内边距-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">内边距:</span>
+                <input type="radio" class="radio-box" name="detail_innerpadding" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleContent.styles,@moduleSet.moduleContent.styles,@moduleSet.moduleContent.styles,@moduleSet.moduleContent.styles],[@defaultObj.moduleContent.styles.paddingTop,@defaultObj.moduleContent.styles.paddingBottom,@defaultObj.moduleContent.styles.paddingLeft,@defaultObj.moduleContent.styles.paddingRight],['paddingTop','paddingBottom','paddingLeft','paddingRight'])">默认
+                <input type="radio" class="radio-box" name="detail_innerpadding" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">上:</span>
+                        <input class="numbers" type="text"
+                               ms-duplex-number="@moduleSet.moduleContent.styles.paddingTop">
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">下:</span>
+                        <input class="numbers" type="text"
+                               ms-duplex-number="@moduleSet.moduleContent.styles.paddingBottom">
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">左:</span>
+                        <input class="numbers" type="text"
+                               ms-duplex-number="@moduleSet.moduleContent.styles.paddingLeft">
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">右:</span>
+                        <input class="numbers" type="text"
+                               ms-duplex-number="@moduleSet.moduleContent.styles.paddingRight">
+                        像素
+                    </div>
+                </div>
+            </div>
+            <!--背景-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">背景:</span>
+                <input type="radio" class="radio-box" name="detail_background" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleContent.beforeHover,@moduleSet.moduleContent.beforeHover,@moduleSet.moduleContent.beforeHover,@moduleSet.moduleContent.beforeHover],[@defaultObj.moduleContent.beforeHover.backgroundColor,@defaultObj.moduleContent.beforeHover.backgroundImage,@defaultObj.moduleContent.beforeHover.backgroundPosition,@defaultObj.moduleContent.beforeHover.backgroundRepeat],['backgroundColor','backgroundImage','backgroundPosition','backgroundRepeat'])">默认
+                <input type="radio" class="radio-box" name="detail_background" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="detail_background" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <p class="attribute-remarks">注：需将标题栏和内容区的背景清除，才可以看到效果</p>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">背景颜色:</span>
+                        <input type="text" class="color-pick"
+                               valName="moduleSet.moduleContent.beforeHover.backgroundColor"
+                               ms-attr="{value:@moduleSet.moduleContent.beforeHover.backgroundColor}">
+                        <button ms-click="@setFliter">取消背景</button>
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">背景图片:</span>
+                        <input type="text" disabled
+                               ms-attr="{value:@moduleSet.moduleContent.beforeHover.backgroundImage}">
+                        <button>上传</button>
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">背景位置:</span>
+                        <select ms-duplex="@moduleSet.moduleContent.beforeHover.backgroundPosition">
+                            <option value="left top">左上</option>
+                            <option value="left center">左中</option>
+                            <option value="left bottom">左下</option>
+                            <option value="center top">中上</option>
+                            <option value="center">居中</option>
+                            <option value="center bottom">中下</option>
+                            <option value="right top">右上</option>
+                            <option value="right center">右中</option>
+                            <option value="right bottom">右下</option>
+                        </select>
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">平铺:</span>
+                        <select ms-duplex="@moduleSet.moduleContent.beforeHover.backgroundRepeat">
+                            <option value="no-repeat">不平铺</option>
+                            <option value="repeat">平铺</option>
+                            <option value="repeat-x">横向平铺</option>
+                            <option value="repeat-y">纵向平铺</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--圆角-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">圆角设置:</span>
+                <input type="radio" class="radio-box" name="detail_fillet" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleContent.styles],[@defaultObj.moduleContent.styles.borderRadius],['borderRadius'])">默认
+                <input type="radio" class="radio-box" name="detail_fillet" value="custom" ms-click="@showCustom">自定义
+                <p class="remarks">注：需将标题栏和内容区的背景清除，才可以看到效果</p>
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">圆角边度:</span>
+                        <select ms-duplex="@moduleSet.moduleContent.styles.borderRadius">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="100%">100%</option>
+                        </select>
+                        像素
+                    </div>
+                </div>
+            </div>
+            <!--上边线-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">上边线:</span>
+                <input type="radio" class="radio-box" name="detail_borderTop" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleContent.beforeHover,@moduleSet.moduleContent.beforeHover,@moduleSet.moduleContent.beforeHover],[@defaultObj.moduleContent.beforeHover.borderTopColor,@defaultObj.moduleContent.beforeHover.borderTopWidth,@defaultObj.moduleContent.beforeHover.borderTopStyle],['borderTopColor','borderTopWidth','borderTopStyle'])">默认
+                <input type="radio" class="radio-box" name="detail_borderTop" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="detail_borderTop" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">颜色:</span>
+                        <input type="text" class="color-pick"
+                               valName="moduleSet.moduleContent.beforeHover.borderTopColor"
+                               ms-attr="{value:@moduleSet.moduleContent.beforeHover.borderTopColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <select ms-duplex="@moduleSet.moduleContent.beforeHover.borderTopWidth">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">样式:</span>
+                        <select ms-duplex="@moduleSet.moduleContent.beforeHover.borderTopStyle">
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点状</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--下边线-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">下边线:</span>
+                <input type="radio" class="radio-box" name="detail_borderBottom" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleContent.beforeHover,@moduleSet.moduleContent.beforeHover,@moduleSet.moduleContent.beforeHover],[@defaultObj.moduleContent.beforeHover.borderBottomColor,@defaultObj.moduleContent.beforeHover.borderBottomWidth,@defaultObj.moduleContent.beforeHover.borderBottomStyle],['borderBottomColor','borderBottomWidth','borderBottomStyle'])">默认
+                <input type="radio" class="radio-box" name="detail_borderBottom" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="detail_borderBottom" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">颜色:</span>
+                        <input type="text" class="color-pick"
+                               valName="moduleSet.moduleContent.beforeHover.borderBottomColor"
+                               ms-attr="{value:@moduleSet.moduleContent.beforeHover.borderBottomColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <select ms-duplex="@moduleSet.moduleContent.beforeHover.borderBottomWidth">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">样式:</span>
+                        <select ms-duplex="@moduleSet.moduleContent.beforeHover.borderBottomStyle">
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点状</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--左边线-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">左边线:</span>
+                <input type="radio" class="radio-box" name="detail_borderLeft" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleContent.beforeHover,@moduleSet.moduleContent.beforeHover,@moduleSet.moduleContent.beforeHover],[@defaultObj.moduleContent.beforeHover.borderLeftColor,@defaultObj.moduleContent.beforeHover.borderLeftWidth,@defaultObj.moduleContent.beforeHover.borderLeftStyle],['borderLeftColor','borderLeftWidth','borderLeftStyle'])">默认
+                <input type="radio" class="radio-box" name="detail_borderLeft" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="detail_borderLeft" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">颜色:</span>
+                        <input type="text" class="color-pick"
+                               valName="moduleSet.moduleContent.beforeHover.borderLeftColor"
+                               ms-attr="{value:@moduleSet.moduleContent.beforeHover.borderLeftColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <select ms-duplex="@moduleSet.moduleContent.beforeHover.borderLeftWidth">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">样式:</span>
+                        <select ms-duplex="@moduleSet.moduleContent.beforeHover.borderLeftStyle">
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点状</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--右边线-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">右边线:</span>
+                <input type="radio" class="radio-box" name="detail_borderRight" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleContent.beforeHover,@moduleSet.moduleContent.beforeHover,@moduleSet.moduleContent.beforeHover],[@defaultObj.moduleContent.beforeHover.borderRightColor,@defaultObj.moduleContent.beforeHover.borderRightWidth,@defaultObj.moduleContent.beforeHover.borderRightStyle],['borderRightColor','borderRightWidth','borderRightStyle'])">默认
+                <input type="radio" class="radio-box" name="detail_borderRight" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="detail_borderRight" value="custom" ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">颜色:</span>
+                        <input type="text" class="color-pick"
+                               valName="moduleSet.moduleContent.beforeHover.borderRightColor"
+                               ms-attr="{value:@moduleSet.moduleContent.beforeHover.borderRightColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <select ms-duplex="@moduleSet.moduleContent.beforeHover.borderRightWidth">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">样式:</span>
+                        <select ms-duplex="@moduleSet.moduleContent.beforeHover.borderRightStyle">
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点状</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--透明度-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">透明度:</span>
+                <input type="range" min="0" max="10" ms-duplex-number="@moduleSet.moduleContent.styles.opacity">
+            </div>
+        </div>
+        <div class="attribute-title">鼠标经过状态</div>
+        <div class="attribute-content">
+            <!--背景-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">背景:</span>
+                <input type="radio" class="radio-box" name="detail_backgroundHover" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleContent.hoverStyle,@moduleSet.moduleContent.hoverStyle,@moduleSet.moduleContent.hoverStyle,@moduleSet.moduleContent.hoverStyle],[@defaultObj.moduleContent.hoverStyle.backgroundColor,@defaultObj.moduleContent.hoverStyle.backgroundImage,@defaultObj.moduleContent.hoverStyle.backgroundPosition,@defaultObj.moduleContent.hoverStyle.borderLeftStyle],['backgroundColor','backgroundImage','backgroundPosition','borderLeftStyle'])">默认
+                <input type="radio" class="radio-box" name="detail_backgroundHover" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="detail_backgroundHover" value="custom"
+                       ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <p class="attribute-remarks">注：需将标题栏和内容区的背景清除，才可以看到效果</p>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">背景颜色:</span>
+                        <input type="text" class="color-pick"
+                               valName="moduleSet.moduleContent.hoverStyle.backgroundColor"
+                               ms-attr="{value:@moduleSet.moduleContent.hoverStyle.backgroundColor}">
+                        <button ms-click="@setFliter">取消背景</button>
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">背景图片:</span>
+                        <input type="text" disabled
+                               ms-attr="{value:@moduleSet.moduleContent.hoverStyle.backgroundImage}">
+                        <button>上传</button>
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">背景位置:</span>
+                        <select ms-duplex="@moduleSet.moduleContent.hoverStyle.backgroundPosition">
+                            <option value="left top">左上</option>
+                            <option value="left center">左中</option>
+                            <option value="left bottom">左下</option>
+                            <option value="center top">中上</option>
+                            <option value="center">居中</option>
+                            <option value="center bottom">中下</option>
+                            <option value="right top">右上</option>
+                            <option value="right center">右中</option>
+                            <option value="right bottom">右下</option>
+                        </select>
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">平铺:</span>
+                        <select ms-duplex="@moduleSet.moduleContent.hoverStyle.borderLeftStyle">
+                            <option value="no-repeat">不平铺</option>
+                            <option value="repeat">平铺</option>
+                            <option value="repeat-x">横向平铺</option>
+                            <option value="repeat-y">纵向平铺</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--上边线-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">上边线:</span>
+                <input type="radio" class="radio-box" name="detail_borderTopHover" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleContent.hoverStyle,@moduleSet.moduleContent.hoverStyle,@moduleSet.moduleContent.hoverStyle],[@defaultObj.moduleContent.hoverStyle.borderTopColor,@defaultObj.moduleContent.hoverStyle.borderTopWidth,@defaultObj.moduleContent.hoverStyle.borderTopStyle],['borderTopColor','borderTopColor','borderTopStyle'])">默认
+                <input type="radio" class="radio-box" name="detail_borderTopHover" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="detail_borderTopHover" value="custom"
+                       ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">颜色:</span>
+                        <input type="text" class="color-pick"
+                               valName="moduleSet.moduleContent.hoverStyle.borderTopColor"
+                               ms-attr="{value:@moduleSet.moduleContent.hoverStyle.borderTopColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <select ms-duplex="@moduleSet.moduleContent.hoverStyle.borderTopWidth">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">样式:</span>
+                        <select ms-duplex="@moduleSet.moduleContent.hoverStyle.borderTopStyle">
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点状</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--下边线-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">下边线:</span>
+                <input type="radio" class="radio-box" name="detail_borderBottomHover" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleContent.hoverStyle,@moduleSet.moduleContent.hoverStyle,@moduleSet.moduleContent.hoverStyle],[@defaultObj.moduleContent.hoverStyle.borderBottomColor,@defaultObj.moduleContent.hoverStyle.borderBottomWidth,@defaultObj.moduleContent.hoverStyle.borderBottomStyle],['borderBottomColor','borderBottomWidth','borderBottomStyle'])">默认
+                <input type="radio" class="radio-box" name="detail_borderBottomHover" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="detail_borderBottomHover" value="custom"
+                       ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">颜色:</span>
+                        <input type="text" class="color-pick"
+                               valName="moduleSet.moduleContent.hoverStyle.borderBottomColor"
+                               ms-attr="{value:@moduleSet.moduleContent.hoverStyle.borderBottomColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <select ms-duplex="@moduleSet.moduleContent.hoverStyle.borderBottomWidth">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">样式:</span>
+                        <select ms-duplex="@moduleSet.moduleContent.hoverStyle.borderBottomStyle">
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点状</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--左边线-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">左边线:</span>
+                <input type="radio" class="radio-box" name="detail_borderLeftHover" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleContent.hoverStyle,@moduleSet.moduleContent.hoverStyle,@moduleSet.moduleContent.hoverStyle],[@defaultObj.moduleContent.hoverStyle.borderLeftColor,@defaultObj.moduleContent.hoverStyle.borderLeftWidth,@defaultObj.moduleContent.hoverStyle.borderLeftStyle],['borderLeftColor','borderLeftWidth','borderLeftStyle'])">默认
+                <input type="radio" class="radio-box" name="detail_borderLeftHover" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="detail_borderLeftHover" value="custom"
+                       ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">颜色:</span>
+                        <input type="text" class="color-pick"
+                               valName="moduleSet.moduleContent.hoverStyle.borderLeftColor"
+                               ms-attr="{value:@moduleSet.moduleContent.hoverStyle.borderLeftColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <select ms-duplex="@moduleSet.moduleContent.hoverStyle.borderLeftWidth">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">样式:</span>
+                        <select ms-duplex="@moduleSet.moduleContent.hoverStyle.borderLeftStyle">
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点状</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--右边线-->
+            <div class="attribute-content-item">
+                <span class="attribute-name">右边线:</span>
+                <input type="radio" class="radio-box" name="detail_borderRightHover" checked value="default"
+                       ms-click="@setDefault([@moduleSet.moduleContent.hoverStyle,@moduleSet.moduleContent.hoverStyle,@moduleSet.moduleContent.hoverStyle],[@defaultObj.moduleContent.hoverStyle.borderRightColor,@defaultObj.moduleContent.hoverStyle.borderRightWidth,@defaultObj.moduleContent.hoverStyle.borderRightStyle],['borderRightColor','borderRightWidth','borderRightStyle'])">默认
+                <input type="radio" class="radio-box" name="detail_borderRightHover" value="hidden">隐藏
+                <input type="radio" class="radio-box" name="detail_borderRightHover" value="custom"
+                       ms-click="@showCustom">自定义
+                <div class="attribute-custom">
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">颜色:</span>
+                        <input type="text" class="color-pick"
+                               valName="moduleSet.moduleContent.hoverStyle.borderRightColor"
+                               ms-attr="{value:@moduleSet.moduleContent.hoverStyle.borderRightColor}">
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">高度:</span>
+                        <select ms-duplex="@moduleSet.moduleContent.hoverStyle.borderRightWidth">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        像素
+                    </div>
+                    <div class="attribute-custom-item">
+                        <span class="attribute-custom-name">样式:</span>
+                        <select ms-duplex="@moduleSet.moduleContent.hoverStyle.borderRightStyle">
+                            <option value="solid">实线</option>
+                            <option value="dashed">虚线</option>
+                            <option value="dotted">点状</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--高级设置面板-->
+    <div class="attribute-advanced">
+        <div class="attribute-content">
+            <!--图片模块-->
+            <div class="attribute-content-item" ms-if="@moduleSet.advancedSetting.picturesrc !== undefined">
+                <span class="attribute-name">图片:</span>
+                <img class="img-preview" ms-attr="{src:@moduleSet.advancedSetting.picturesrc}"/>
+                <button>上传</button>
+            </div>
+            <div class="attribute-content-item" ms-if="@moduleSet.advancedSetting.picturetarget !== undefined">
+                <span class="attribute-name">打开方式:</span>
+                <select ms-duplex="@moduleSet.advancedSetting.picturetarget">
+                    <option value="_blank">新页面打开</option>
+                    <option value="_self">本页打开</option>
+                </select>
+            </div>
+            <div class="attribute-content-item" ms-if="@moduleSet.advancedSetting.picturehref !== undefined">
+                <span class="attribute-name">链接:</span>
+                <input type="text" ms-duplex="@moduleSet.advancedSetting.picturehref">
+            </div>
+            <!--文字模块-->
+            <div class="attribute-content-item" ms-if="@moduleSet.advancedSetting.worddetails !== undefined">
+                <span class="attribute-name">文本内容:</span>
+                <!--<textarea type="text" ms-duplex="@moduleSet.advancedSetting.worddetails"></textarea>-->
+                <!-- 加载编辑器的容器 -->
+                <script id="container" name="content" type="text/plain"></script>
+                <!-- 加载编辑器的容器 -->
+            </div>
+            <!--图文模块-->
+            <!--图文模块-图片地址-->
+            <div class="attribute-content-item" ms-if="@moduleSet.advancedSetting.graphicDetles !== undefined">
+                <span class="attribute-name">图片地址:</span>
+                <input type="text" ms-duplex="@moduleSet.advancedSetting.graphicDetles.src">
+                <button>上传</button>
+            </div>
+            <!--图文模块-链接地址-->
+            <div class="attribute-content-item" ms-if="@moduleSet.advancedSetting.graphicDetles !== undefined">
+                <span class="attribute-name">链接地址:</span>
+                <input type="text" disabled ms-attr="{value:@moduleSet.advancedSetting.graphicDetles.href}">
+                <button>上传</button>
+            </div>
+            <div class="attribute-content-item" ms-if="@moduleSet.advancedSetting.graphicDetles !== undefined">
+                <span class="attribute-name">样式:</span>
+                <div class="attribute-custom-item">
+                    <span class="attribute-custom-name">样式:</span>
+                    <select ms-duplex="@moduleSet.advancedSetting.graphicClassStyle.default">
+                        <option value="styleType_1" selected>样式1</option>
+                        <option value="styleType_2">样式2</option>
+                        <option value="styleType_3">样式3</option>
+                    </select>
+                    <div ms-visible="@moduleSet.advancedSetting.graphicClassStyle.default=='styleType_1'">
+                        <span class="attribute-custom-name">图片宽度:</span>
+                        <input type="text" ms-duplex="@moduleSet.advancedSetting.graphicImgStyle_1.width">
+                        <div style="clear:both"></div>
+                        <span class="attribute-custom-name">图片高度:</span>
+                        <input type="text" ms-duplex="@moduleSet.advancedSetting.graphicImgStyle_1.height">
+                    </div>
+
+                    <div ms-visible="@moduleSet.advancedSetting.graphicClassStyle.default=='styleType_2'">
+                        <span class="attribute-custom-name">图片宽度:</span>
+                        <input type="text" ms-duplex="@moduleSet.advancedSetting.graphicImgStyle_2.width">
+                        <div style="clear:both"></div>
+                        <span class="attribute-custom-name">图片高度:</span>
+                        <input type="text" ms-duplex="@moduleSet.advancedSetting.graphicImgStyle_2.height">
+                    </div>
+
+                    <div ms-visible="@moduleSet.advancedSetting.graphicClassStyle.default=='styleType_3'">
+                        <span class="attribute-custom-name">图片宽度:</span>
+                        <input type="text" ms-duplex="@moduleSet.advancedSetting.graphicImgStyle_3.width">
+                        <div style="clear:both"></div>
+                        <span class="attribute-custom-name">图片高度:</span>
+                        <input type="text" ms-duplex="@moduleSet.advancedSetting.graphicImgStyle_3.height">
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both"></div>
+            <!--图文模块-文字描述-->
+            <div class="attribute-content-item" ms-if="@moduleSet.advancedSetting.graphicDetles !== undefined">
+                <span class="attribute-name">文字描述:</span>
+                <input type="text" ms-duplex="@moduleSet.advancedSetting.graphicDetles.des"
+                       style="width:200px; height: 200px">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href=" ../favicon.ico" />
+    <title>{%=o.htmlWebpackPlugin.options.title || 'Webpack App'%}</title>
+    {% if (o.htmlWebpackPlugin.files.favicon) { %}
+    <link rel="shortcut icon" href="{%=o.htmlWebpackPlugin.files.favicon%}">
+    {% } %} {% for (var css in o.htmlWebpackPlugin.files.css) { %}
+    <link href="{%=o.htmlWebpackPlugin.files.css[css] %}" rel="stylesheet">
+    {% } %}
+</head>
+
+<body class="ms-controller" ms-controller="app">
+<!--顶部工具栏-->
+<div class="bst-header" ms-controller="topbar">
+    <!--logo-->
+    <div class="bst-logo"></div>
+    <!--管理-->
+    <div class="bst-administrations">
+        <ul>
+            <li><a><i class="iconfont icon-zuzhiguanli"></i>后台管理</a></li>
+            <li><a><i class="iconfont icon-yifu"></i>模版管理</a></li>
+        </ul>
+    </div>
+    <!--数值监视-->
+    <div class="bst-watchs">
+        坐标:X- <input type="number" ms-duplex-number="@left">&nbsp;
+        &nbsp;Y- <input type="number" ms-duplex-number="@top">
+    </div>
+    <!--小工具-->
+    <div class="bst-gadgets">
+        <ul class="left-bar">
+            <li><i class="iconfont icon-before"></i></li>
+            <li><i class="iconfont icon-after"></i></li>
+            <li><i class="iconfont icon-biaochi"></i></li>
+        </ul>
+        <ul class="right-bar">
+            <li ms-click="@save"><i class="iconfont icon-baocun"></i>保存</li>
+            <li><i class="iconfont icon-yulan"></i>预览</li>
+        </ul>
+    </div>
+    <!--网站宽度-->
+    <div class="bst-width">
+        网站宽度:
+        <select ms-duplex-number="@width">
+            <option value="1000">1000px</option>
+            <option value="1200">1200px</option>
+            <option value="1400">1400px</option>
+        </select>
+    </div>
+</div>
+<!--顶部工具栏-->
+
+<!--左侧侧栏-->
+<div ms-controller="leftsidebar">
+    <div class="bst-left-sidebar unselectable">
+        <ul id="left_bar">
+            <li ms-for="bar in @bars" ms-class="[(bar.active? 'active':'')]" ms-click="@showViewModules(bar)">
+                <i class="iconfont" ms-class="bar.icon"></i>{{ bar.name }}
+            </li>
+        </ul>
+    </div>
+    <div class="bst-left-viewbox" ms-visible="@isViewbox">
+        <div class="viewbox-title">
+            <em></em>
+            <p>{{ @viewModule.name }}模块</p>
+            <a class="iconfont icon-guanbi" ms-click="@closeViewbox"></a>
+        </div>
+        <ul class="viewbox-list">
+            <li ms-for="(index,view) in @viewModule.views"
+                ms-if-loop="view.widget == 'drag'"
+                ms-click="@addModuel">
+                {{ view.name }}
+                <a class="iconfont icon-add"></a>
+            </li>
+            <li ms-for="(index,view) in @viewModule.views"
+                ms-attr="{jsonName:view.jsonKey}"
+                ms-if-loop="view.widget !== 'drag'"
+                data-base="true" class="draggle-module side-module"
+                data-for-rendered="@draggleInit()">
+                {{ view.name }}
+                <a class="iconfont icon-tuozhuai"></a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--左侧侧栏-->
+
+<!--右侧主视图区域-->
+<div class="bst-mian-contnet">
+    <div class="bst-main-view">
+        <div class="bst-common-header" ms-controller="publicheader">
+            <xmp ms-widget='[{is:"ms-drag",$id:"drag_header"},@headerLayouts]'></xmp>
+        </div>
+        <div class="bst-main-width" ms-css="{width:@width}">
+            <xmp ms-for="(index,layout) in @layouts"  ms-widget='[{is:"ms-drag",$id:"drag_"+index},layout]'></xmp>
+        </div>
+        <div class="bst-common-footer" ms-controller="publicfooter">
+            <xmp ms-widget='[{is:"ms-drag",$id:"drag_footer"},@footerLayouts]'></xmp>
+        </div>
+    </div>
+    <!--模块工具条-->
+    <ul class="bst-tool-bar" ms-controller="toolbar" ms-css="@position" ms-visible="@ishide">
+        <li ms-for="tool in @tools" ms-class="tool.type" ms-click="@toolAction(tool.type)">
+            <i class="iconfont" ms-class="tool.icon"></i>
+            <a>{{ tool.name }}</a>
+        </li>
+    </ul>
+    <!--模块工具条-->
+</div>
+<!--右侧主视图区域-->
+
+<!--模块设置面板-->
+<div class="bst-settings" ms-controller="settingspanel" ms-visible="@isOpen">
+    <div class="settings-header">
+        <i class="iconfont icon-yifu"></i>
+        设置
+        <a class="settings-close" ms-click="@closePanel">
+            <i class="iconfont icon-close"></i>
+        </a>
+    </div>
+    <div class="settings-content">
+        <xmp ms-widget="[{is:'ms-settings',$id:'baseSetting'},@baseSettingObj]"></xmp>
+    </div>
+</div>
+<!--模块设置面板-->
+
+<!--NAV模块设置面板-->
+<div class="bst-settings" ms-controller="navPanel" ms-visible="@isOpen">
+    <div class="settings-header">
+        <i class="iconfont icon-yifu"></i>
+        导航设置
+        <a class="settings-close" ms-click="@closePanel">
+            <i class="iconfont icon-close"></i>
+        </a>
+    </div>
+    <div class="settings-content">
+        <xmp ms-widget="[{is:'ms-navtabs',$id:'navtabs'},@settingObj]"></xmp>
+    </div>
+</div>
+<!--NAV模块设置面板-->
+
+<!--页面蒙板-->
+<div class="bst-mask" ms-visible="@maskShow"></div>
+<!--页面蒙板-->
+
+</body>
+{% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
+<script src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry %}"></script>
+{% } %}
+</html>

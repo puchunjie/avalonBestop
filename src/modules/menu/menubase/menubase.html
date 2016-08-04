@@ -1,0 +1,31 @@
+<div ms-css="@moduleSet.outLook.styles" class="menu bst-module draggle-module">
+
+		<ul>
+			<li ms-for="(a,b) in @moduleSet.navData" 
+				ms-if-loop="b.cj == '1'"  
+				ms-css="@moduleSet.moduleContent.defstyles"     >
+				<a ms-attr="{href:b.url}"  ms-css="@moduleSet.moduleContent.defstylesAlink" 
+					ms-css-2="b.flag?{backgroundImage:'url('+b.befimg + ')'}:{backgroundImage:'url('+b.hovimg + ')'}"
+					ms-css-1="b.flag?@moduleSet.moduleContent.beforeHover:@moduleSet.moduleContent.hoverstyles" 
+					ms-css-lineheight="{lineHeight:@moduleSet.moduleContent.defstylesAlink.lineHeight+'px'}"
+					ms-mouseenter="@addHoverStyle(b)" 
+					ms-mouseleave="@removeHoverStyle(b)" >
+					{{b.name}}
+					<p ms-if="b.ename !== ''"  ms-css="b.flag?@moduleSet.moduleContent.estyles:@moduleSet.moduleContent.ehovstyles"  >
+					{{b.ename}}</p>
+				</a>
+			  	<ul ms-css="@moduleSet.outLook.stylesul2"  class="ul2">
+					<li ms-if="d.cj == '2' && b.cid == d.pid"   ms-for="(c,d) in @moduleSet.navData" >
+						<a ms-mouseenter="@addHoverStyle(d)" ms-mouseleave="@removeHoverStyle(d)" ms-css="@moduleSet.moduleContent.defstylesul2" ms-css-1="d.flag?@moduleSet.moduleContent.beforeHoverul2:@moduleSet.moduleContent.hoverstylesul2" >{{d.name}}</a>
+						<ul class="ul3">
+							<li  ms-if="f.cj == '3' && d.cid == f.pid"   ms-for="(e,f) in @moduleSet.navData">
+							<a ms-mouseenter="@addHoverStyle(f)" ms-mouseleave="@removeHoverStyle(f)" ms-css="@moduleSet.moduleContent.defstylesul3" ms-css-1="f.flag?@moduleSet.moduleContent.beforeHoverul3:@moduleSet.moduleContent.hoverstylesul3">{{f.name}}</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<div style="overflow: hidden;clear: both;"></div>
+
+</div>

@@ -1,0 +1,46 @@
+.list-content ul {
+    margin: 0;
+    padding: 0;
+}
+
+.drag-palcehold {
+    width: 163px;
+    height: 43px;
+    text-align: center;
+    color: #fff;
+    font: 400 14px/40px "微软雅黑";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -21px 0 0 -82px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #3D6FC1;
+}
+
+.drag-setting {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    display: none;
+}
+
+.drag-setting li {
+    float: left;
+    padding: 5px;
+    height: 20px;
+    line-height: 10px;
+    text-align: center;
+    font-size: 12px;
+    border: 1px solid #6da4cd;
+    color: #6da4cd;
+    background-color: #e8f5fd;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.drag-setting li:hover{
+    background-color: #4492fb;
+    border-color: #006cff;
+    color: #fff;
+}

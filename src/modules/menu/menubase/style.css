@@ -1,0 +1,11 @@
+.moveFloat {
+	background: #eee;
+	position:relative;
+	width: 100%;
+	}
+.menu li .ul2{
+	display: none;
+}
+.menu li:hover .ul2{
+	display: block;
+}
